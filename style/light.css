@@ -17,6 +17,9 @@
     border-width: 2px;
     border-color: black;
 }
+.menubox > .menubar > *:not(.spacer):hover {
+    background-color: #6d5dbf33;
+}
 .menubox > .menubar > .input > img {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
@@ -32,15 +35,33 @@
     border-top-width: 0.6em;
     border-top-color: #6d5dbf;
 }
+.entrybox > .entry:hover {
+    background-color: #6d5dbf33;
+}
 .entrybox > .entry > .title {
     position: relative;
     font-size: 3em;
     font-family: slkscr;
+    color: black;
 }
+.entrybox > .entry > .title:hover {
+    text-decoration: underline;
+}
+.entrybox > .metaentry > .title:hover {
+    text-decoration: none;
+} 
 .entrybox > .entry > .author {
     font-style: italic;
     font-family: slkscr;
     font-size: 1em;
+}
+.entrybox > .entry > .author > .author {
+    font-family: slkscr;
+    text-decoration: none;
+    color: black;
+}
+.entrybox > .entry > .author > .author:hover {
+    text-decoration: underline;
 }
 .entrybox > .entry > .seperator {
     border: none;

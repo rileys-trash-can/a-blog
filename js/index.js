@@ -16,7 +16,7 @@ $.get("/posts?api&featured&len=10", d => {
     else {
         elements = []
         for( let i = 0 ; i < json.content.length ; i++ ) {
-            let elem = new entry(json.content[i].title, json.content[i].author, json.content[i].desc, json.content[i].href, json.content[i].tags)
+            let elem = new entry(json.content[i].title, json.content[i].author, json.content[i].desc, json.content[i].href, json.content[i].tags, json.content[i].id)
             elements.push(elem)
             $(".content").append(elem.createelement())
         }
