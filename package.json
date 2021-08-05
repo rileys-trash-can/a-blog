@@ -1,0 +1,29 @@
+{
+  "name": "derzombiiie.com",
+  "version": "1.0.0",
+  "description": "derzombiiie.com blog",
+  "main": "node/app.js",
+  "scripts": {
+    "test": "npm node/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eds-trash-can/derzombiiie.com.git"
+  },
+  "keywords": [
+    "web",
+    "node",
+    "blog"
+  ],
+  "author": "DerZombiiie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eds-trash-can/derzombiiie.com/issues"
+  },
+  "homepage": "https://github.com/Eds-trash-can/derzombiiie.com#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-json-db": "^1.3.0",
+    "simple-json-db": "^1.2.3"
+  }
+}
