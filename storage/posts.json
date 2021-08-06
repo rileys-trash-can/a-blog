@@ -1,0 +1,37 @@
+{
+    "0": {
+        "title": "My 1 Post",
+        "author": "derzombiiie",
+        "desc": "Lorem ipsum dolor sit.",
+        "href": "#",
+        "tags": [
+            "testing",
+            "$$$"
+        ],
+        "rating": {
+            "+": 99,
+            "-": 0
+        },
+        "create": 1,
+        "id": 0
+    },
+    "1": {
+        "title": "My 2 Post",
+        "author": "derzombiiie",
+        "desc": "Lorem ipsum dolor sit.",
+        "href": "#",
+        "tags": [
+            "testing",
+            "$$$"
+        ],
+        "dummy": {
+            "1": 2
+        },
+        "rating": {
+            "+": 999,
+            "-": 0
+        },
+        "create": 2,
+        "id": 1
+    }
+}

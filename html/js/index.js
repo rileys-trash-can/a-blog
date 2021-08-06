@@ -9,8 +9,7 @@ console.log(
 new themes( "light" )
 
 // get newest 10 blog articles from api
-$.get("/posts?api&featured&len=10", d => {
-    let json = JSON.parse(d)
+$.get("/posts?api&featured&len=10", json => {
     if ( json.type != "s" )
         return false
     else {
