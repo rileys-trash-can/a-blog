@@ -15,8 +15,6 @@ app.use("/static", express.static("html"))
 
 // console commands:
 con.registercmd( "stop", () => shutdown() )
-con.registercmd( "getpost", (arg) => console.log(postsDB.get(arg[0])) )
-con.registercmd( "getpostranking", (arg) => console.log(posts.ranking[arg[0]]))
 con.registercmd( "appeval", (arg) => {try {console.log(eval(arg.join(" ")))} catch {console.log("Couldn't execute!")}})
 
 con.registercmd( "post", (arg => {
@@ -83,17 +81,17 @@ posts.rank()
 // posts:
 app.get("/posts", (req, res) => {
 	if( typeof( req.query.api ) != "undefined" ) {
-	res.type( "application/json" )
+		res.type( "application/json" )
 		if( ! ( req.query.len < 50 ) )  {
 			res.status( 400 )
 			res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
 		} else {
 			res.status( 200 )
-			res.send(`{"type":"s","content":${JSON.stringify(posts.read(10, "featured"))}}`)
+			res.send(`{"type":"s","content":${JSON.stringify(posts.read(10, "hot"))}}`)
 		}
 	} else {
-		res.status( 400 )
-		res.end("Why you trying this?")
+		res.status( 200 )
+		filestuff.readFSr(req, res, "html/posts/index.html", "text/html", "//<!--POST-DATA-INJECT-->//", JSON.stringify(postsDB.get(req.query.post)))
 	}
 })
 

@@ -16,3 +16,6 @@ class themes {
         })
     }
 }
+
+// static until cookie model implemented / user / idk preferences
+new themes("light")

@@ -4,7 +4,8 @@ this.init = (db) => {
 }
 
 this.ranking = { "hot":[-1], "new":[-1] }
-// generating "hot" articles etc. (should run 1 / 0:30h and at startup + on new article)
+
+// generating "hot" + "new" articles etc. (should run 1 / 0:30h and at startup + on new article)
 this.rank = (c) => {
     if (!c) {
         // read * from db to work on
@@ -74,9 +75,24 @@ this.rank = (c) => {
 
 this.read = (count, sort) => {
     let ret = []
-    for ( let i = 0 ; i < count ; i++ ) {
-        if ( this.db.get( String(i) ) )
-            ret.push( this.db.get( String( i ) ) )
+	debugger
+    switch (sort) {
+    	case "hot":
+		this.ranking.hot.length
+			for ( let i = 0 ; i < count ; i++ ) {
+				if ( typeof( this.ranking.hot[i] ) == "number" ) {
+					ret.push( this.db.get( this.ranking.hot[i] ) )
+				}
+			}
+				
+			break
+
+    	default:
+		    for ( let i = 0 ; i < count ; i++ ) {
+		        if ( this.db.get( i ) )
+		            ret.push( this.db.get( i ) )
+		    }
+		    break
     }
     return ret
 }

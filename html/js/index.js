@@ -5,11 +5,9 @@ console.log(
  //  License: GPLv3 (if not noted otherwise)   //
 // ------------------------------------------ //`)
 
-// static theme for testing 
-new themes( "light" )
-
 // get newest 10 blog articles from api
-$.get("/posts?api&featured&len=10", json => {
+$.get("/posts?api&hot&len=10", json => {
+    displayshare()
     if ( json.type != "s" )
         return false
     else {

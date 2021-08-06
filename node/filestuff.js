@@ -15,10 +15,21 @@ module.exports.readFS = (req, res, file, type) => {
 	fs.readFile(file, "utf8", (err, data) => {
 		if (err) {
 			res.status(500)
-			res.end("index not found!")
+			res.end("not found!")
 		} else {
 			res.type(type ? type : file)
 			res.end(data)
+		}
+	})
+}
+module.exports.readFSr = (req, res, file, type, search, replace) => {
+	fs.readFile(file, "utf8", (err, data) => {
+		if (err) {
+			res.status(500)
+			res.end("not found!")
+		} else {
+			res.type(type ? type : file)
+			res.end(data.replace(search, replace))
 		}
 	})
 }
