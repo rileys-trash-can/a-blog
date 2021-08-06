@@ -22,6 +22,8 @@ module.exports.eval = ( cmd ) => {
 	split.shift()
 	let args  = split
 
+	if (! comm ) return // if cmd empty dont do anything
+
 	if ( module.exports.registerdcmds[comm] ) {
 		module.exports.registerdcmds[comm](args, prefix)
 	} else {
@@ -50,4 +52,3 @@ this.registerdcmds["exit"] = () => {
 this.registerdcmds["clear"] = () => {
 	console.log('\033[2J')
 }
- 
