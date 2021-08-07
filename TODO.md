@@ -1,9 +1,10 @@
 # TODO
 
 - Actual post view site thingy 
-    - markdown interpreter thing
-    - idk comments
-    - voting
+    <DONE> markdown interpreter thing
+    * voting
+    * idk comments
+
 
 - Admin interface
     - create posts in MD

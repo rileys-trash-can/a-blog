@@ -4,6 +4,7 @@ const filestuff = require("./filestuff")
 var   con       = require("./console")
 const JSONdb = require("simple-json-db")
 var   posts = require("./posts")
+var   comments = require("./comments")
 
 const app = express()
 const port = 5500
@@ -78,6 +79,10 @@ const postsDB = new JSONdb("storage/posts.json")
 posts.init(postsDB)
 posts.rank()
 
+// readout comments:
+const commentDB = new JSONdb("storage/comments.json")
+comments.init(commentDB)
+
 // posts:
 app.get("/posts", (req, res) => {
 	if( typeof( req.query.api ) != "undefined" ) {
@@ -91,7 +96,7 @@ app.get("/posts", (req, res) => {
 		}
 	} else {
 		res.status( 200 )
-		filestuff.readFSr(req, res, "html/posts/index.html", "text/html", "//<!--POST-DATA-INJECT-->//", JSON.stringify(postsDB.get(req.query.post)))
+		filestuff.readFSr(req, res, "html/posts/index.html", "text/html", "\"a\"//<!--POST-DATA-INJECT-->//", JSON.stringify(postsDB.get(req.query.post)))
 	}
 })
 

@@ -16,9 +16,10 @@
         "id": 0
     },
     "1": {
-        "title": "My 2 Post",
+        "title": "Im trying MD post",
         "author": "derzombiiie",
-        "desc": "Lorem ipsum dolor sit.",
+        "desc": "HERE PRESS THIS THIS NOT CONTENT THIS DESC!",
+        "content": "# Article!\nwelcome\n*bold***italic** ***bold+italic***\n- point1\n- point2- \n me not more md from the brain :(",
         "href": "#",
         "tags": [
             "testing",

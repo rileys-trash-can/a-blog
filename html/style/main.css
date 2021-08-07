@@ -98,3 +98,10 @@ body, html {
 .share {
     color: blue
 }
+
+/* comments */
+textarea.comment {
+    resize: none;
+    width: calc( 100% - 0.5em);
+    height: 5em;
+}
