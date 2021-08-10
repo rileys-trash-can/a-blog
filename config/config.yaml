@@ -1,0 +1,26 @@
+debug: false # enable / disable debug mode
+logging: 0 # WIP - adjust logging levels
+#   -1 - none
+#    0 - basic (Logs new comments)
+#   10 - datahorder (Logs everything (all requests with ip + timestamp))
+# 1337 - haxxer (takes everything from datahorder and just prints it out)
+logfile: "logs/log.log" # logfile
+
+ipget_endpoint_set: "//derzombiiie.com/getip.php?settoken=${TOKEN}" # endpoint for setting token to ip ${TOKEN} beeing replaced with random char string which is send to server as "ip"
+ipget_endpoint_get: "//derzombiiie.com/getip.php?token=${TOKEN}"    # ${TOKEN} beeing replaced with token from client
+cl: true # enable / disable interactive-ish shell
+# GET with "settoken" // (random by client) saves ip with that token
+
+# content config:
+site_name: "blog.derzombiiie.com"
+
+search_enable: false # enable / disable search WIP
+
+# post ranking config:
+post_ranking_auto: 43200 # time in seconds, posts are autoranked | -1 for not at all (default is 12h)
+index_post_sort: "new" # sorting used for index page
+# new | hot (WIP are: manual, featured)
+
+# file access config:
+comment_sync_on_write: false # sync comments everytime a comment gets edited / created / deleted
+comment_auto_sync: 360 # interval in seconds, comments are synced to disk | -1 for not at all

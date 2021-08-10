@@ -73,7 +73,7 @@ function reloadcommenting() {
 function sendcomment(comment) {
 	// get ip:
 	let token = Math.floor( Math.random()*10**16 )
-	fetch("//derzombiiie.com/getip.php?settoken=" + token, {mode: "no-cors"}).then(()=>{
+	fetch(conf.ipget_endpoint_set.replace("${TOKEN}", token), {mode: "no-cors"}).then(()=>{
 		// comment
 		console.log(postDATA.id, comment, token)
 		$.post("/comments", {

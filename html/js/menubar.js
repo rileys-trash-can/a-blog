@@ -35,10 +35,11 @@ class menubar {
 
 // init:
 $(document).ready(() => {
-    a = new menubar( ".menubox", [
-        {"type":"href", "text":"derzombiiie.com","href":"/"},
-        {"type":"href", "text":"posts",          "href":"/posts"},
-        {"type":"href", "text":"newest",         "href":"/posts?newest"},
-        {"type":"input","id"  :"search-field",   "icon":"/static//icon/search.svg" ,"alt":"search"}
-    ])
+	let e = []
+	e.push({"type":"href", "text":conf.site_name,   "href":"/"})
+	e.push({"type":"href", "text":"posts",          "href":"/posts"})
+	e.push({"type":"href", "text":"newest",         "href":"/posts?newest"})
+	if(conf.search_enable) e.push({"type":"input","id"  :"search-field",   "icon":"/static/icon/search.svg" ,"alt":"search"})
+	    
+    a = new menubar( ".menubox", e)
 })

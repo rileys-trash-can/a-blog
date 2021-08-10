@@ -6,7 +6,7 @@ console.log(
 // ------------------------------------------ //`)
 
 // get newest 10 blog articles from api
-$.get("/posts?api&hot&len=10", json => {
+$.get(`/posts?api&${conf.index_post_sort}&len=10`, json => {
     displayshare()
     if ( json.type != "s" )
         return false

@@ -2,22 +2,22 @@ const fs = require("fs")
 const express  = require("express")
 const fetch = require("node-fetch")
 const geoip = require("geoip-ultralight")
+const JSONdb = require("simple-json-db")
+var   conf = require("./config")
 const filestuff = require("./filestuff")
 var   con       = require("./console")
-const JSONdb = require("simple-json-db")
 var   posts = require("./posts")
 var   comments = require("./comments")
-var   conf = require("./config")
+const scheduler = require("./scheduler")
+const log = require("./logging")
+// init logging
+log.init( conf.logging, conf.logfile )
 
 // general TODO:
 // config! ./config.js for some configuration in js just some form stuff
 // posts.rank timer config'n stuff
-// ip-tkn cleaner & conf ip-tks-cleaner
 //
-// comment functions (see ./comments.js)
-// IP-tokens as "csrf", mby
-//
-// logging levels
+// logging levels log.log(msg, log.d.LEVEL)
 // none - well none
 // basic - access + creation of comments into logfile
 // hacker - same same but in output
@@ -30,6 +30,17 @@ const port = 5500
 // express static stuff sites:
 app.get("/", (req, res) => filestuff.readFS(req, res, "html/index.html", "text/html"))
 app.use("/static", express.static("html"))
+
+// config js file:
+app.get("/config.js", (req, res) => {
+	res.type("application/javascript")
+	res.end(`conf = {}
+conf.ipget_endpoint_set = "${conf.ipget_endpoint_set}"
+conf.site_name = "${conf.site_name}"
+conf.search_enable = ${conf.search_enable}
+conf.index_post_sort = "${conf.index_post_sort}"
+conf.comments_enabled = ${conf.comments_enabled}\n`)
+})
 
 // console commands:
 con.registercmd( "stop", () => shutdown() )
@@ -165,24 +176,42 @@ function shutdown() {
 }
 
 // readout jsonDB:
-const postsDB = new JSONdb("storage/posts.json")
+const postsDB = new JSONdb("storage/posts.json", {
+	"syncOnWrite":conf.post_sync_on_write
+})
 posts.init(postsDB)
 posts.rank()
 
+// post auto rank
+if ( conf.post_auto_rank > 0)
+scheduler.schedule(posts.rank, conf.post_ranking_auto)
+
 // readout comments:
-const commentDB = new JSONdb("storage/comments.json")
+const commentDB = new JSONdb("storage/comments.json", {
+	"syncOnWrite":conf.comment_sync_on_write
+})
 comments.init(commentDB)
 
 // posts:
 app.get("/posts", (req, res) => {
 	if( typeof( req.query.api ) != "undefined" ) {
 		res.type( "application/json" )
-		if( ! ( req.query.len < 50 ) )  {
-			res.status( 400 )
-			res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
-		} else {
-			res.status( 200 )
-			res.send(`{"type":"s","content":${JSON.stringify(posts.read(10, "hot"))}}`)
+		if( typeof( req.query.hot) != "undefined" ) {
+			if( ! ( req.query.len < 50 ) )  {
+				res.status( 400 )
+				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
+			} else {
+				res.status( 200 )
+				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "hot"))}}`)
+			}
+		} else if ( typeof(req.query.new) != "undefined") {
+			if( ! ( req.query.len < 50 ) )  {
+				res.status( 400 )
+				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
+			} else {
+				res.status( 200 )
+				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "new"))}}`)
+			}
 		}
 	} else {
 		res.status( 200 )
@@ -201,7 +230,7 @@ app.all("/comments", (req, res) => {
 		console.log("commentetded!")
 		// get ip from tkn
 		waiting = true
-		fetch("https://derzombiiie.com/getip.php?token="+req.body.ip).then(
+		fetch(conf.ipget_endpoint_set.replace("${TOKEN}", req.body.ip)).then(
 			d => d.text()).then(data=>{
 			if (data == "") {
 				res.end(JSON.stringify({"type":"err","text":"ip-tkn"}))
@@ -230,8 +259,8 @@ app.all("/comments", (req, res) => {
 })
 
 // debug stuff:
+if( conf.debug )
 app.get("/debug/:action", (req, res) => {
-	if( !conf.debug ) return res.end( "NO DEBUG!" )
 	switch ( req.params.action ) {
 		case "ip":
 			res.end(req.ip)
@@ -245,5 +274,5 @@ app.get("/debug/:action", (req, res) => {
 
 app.listen(port, () => {
 	console.log(`Server listening on http://localhost:${port}`)
-	con.init()
+	if(conf.cl)	con.init()
 })
