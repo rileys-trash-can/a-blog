@@ -1,15 +1,13 @@
 const fs = require("fs")
 const express  = require("express")
 const fetch = require("node-fetch")
+const geoip = require("geoip-ultralight")
 const filestuff = require("./filestuff")
 var   con       = require("./console")
 const JSONdb = require("simple-json-db")
 var   posts = require("./posts")
 var   comments = require("./comments")
-//var   conf = require("./config")
-conf = {
-	"debug": true
-}
+var   conf = require("./config")
 
 // general TODO:
 // config! ./config.js for some configuration in js just some form stuff
@@ -58,23 +56,24 @@ con.registercmd( "comment", (arg => {
 			break
 
 		case "push":
-			if (!arg[1] || !arg[2] || !arg[3]) {
-				return console.log("Not all args specified!\nUsage: comment push <time> <author> <content>...")
+			if (!arg[1] || !arg[2] || !arg[3] || !arg[4]) {
+				return console.log("Not all args specified!\nUsage: comment push <post> <time> <author> <content>...")
 			}
-			body = Object.assign([], arg[3])
+			body = Object.assign([], arg)
+			body.shift()
 			body.shift()
 			body.shift()
 			body.shift()
 			body.shift()
 
-			let time = arg[1]
-			if (arg[1] == "auto") {
+			let time = arg[2]
+			if (arg[2] == "auto") {
 				time = new Date().getTime()
 				console.log( "Auto-time: using time: " + time)
 			}
-			console.log( comments.push({
+			console.log( comments.push(arg[1], {
 			"time":  time,
-			"author":arg[2],
+			"author":arg[3],
 			"body":  body.join(" ")
 			}) )
 			break
@@ -92,7 +91,7 @@ con.registercmd( "comment", (arg => {
 
 		case "sync":
 			console.log("syncing...")
-			t = commetDB.sync()
+			t = commetsDB.sync()
 			if (t) console.log(t)
 			console.log("DONE!")
 			break
@@ -192,26 +191,41 @@ app.get("/posts", (req, res) => {
 })
 
 // comments:
-app.get("/comments", (req, res) => {
-	switch (true) {
-		case typeof( req.query.post ) != "undefined":
-			if ( req.query.body && req.query.ip ) {
-				// get ip from tkn
-				fetch("https://derzombiiie.com/getip.php?token="+req.query.ip).then(
-					d => d.text()).then(data=>{
-					if (data == "") {
-						res.end(JSON.stringify({"type":"err","text":"ip-tkn"}))
-						return
-					}
-					comments.push({
-						"time":  new Date().getTime(),
-						"author":data,
-						"body":  req.query.body
-					})
-					res.end(JSON.stringify({"type":"s","text":"commented!"}))	
-					})
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.all("/comments", (req, res) => {
+	res.type("application/json")
+	let ret
+	let waiting
+	if ( req.body.body && req.body.ip && req.body.post ) {
+		console.log("commentetded!")
+		// get ip from tkn
+		waiting = true
+		fetch("https://derzombiiie.com/getip.php?token="+req.body.ip).then(
+			d => d.text()).then(data=>{
+			if (data == "") {
+				res.end(JSON.stringify({"type":"err","text":"ip-tkn"}))
+				return
 			}
-			break
+			ret = comments.push(req.body.post, {
+				"time":  new Date().getTime(),
+				"author":data,
+				"authorinfo":{"country":geoip.lookupCountry(data)},
+				"body":  req.body.body
+			})
+			if ( ret.type == "err" ) res.status( 400 )
+			res.end(JSON.stringify( ret ))
+		})
+	}
+	
+	if ( req.query.post ) {
+		ret = comments.get(req.query.post, req.query.len ? req.query.len : undefined)
+		if ( ret.type == "err" ) res.status( 400 )
+		res.end( JSON.stringify(ret) )
+	}
+	if ( !res.finished && !waiting ) {
+		res.status ( 501 )
+		res.end(JSON.stringify({"type":"err","text":"not implemented!"}))
 	}
 })
 

@@ -105,3 +105,28 @@ textarea.comment {
     width: calc( 100% - 0.5em);
     height: 5em;
 }
+
+.comments > .comment {
+	position: relative;
+	width: calc( 100% - 4em );
+	left: 1em;
+	top: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	margin-bottom: 1em;
+}
+.comments > .comment > .author {
+	position: relative;
+	left: 0px;
+}
+.comments > .comment > .seperator {
+	position: relative;
+	top: 0.2em;
+	height: 0px;
+}
+.comments > .comment > .body {
+	position: relative;
+	top: 0.5em;
+	margin-bottom: 1em;
+}
+

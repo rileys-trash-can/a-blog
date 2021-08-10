@@ -46,7 +46,7 @@ class metaentry {
 `            <div class="entry metaentry">
             <div class="title" href="/posts?post=${this.id}">${this.title}</div>
             <hr  class="seperator" \\>
-            <div class="preview">${this.additional.content}</div>
+            <div class="preview ${this.additional.class}">${this.additional.content}</div>
             </div>`
         element.classList = ["entrybox"]
         return element
