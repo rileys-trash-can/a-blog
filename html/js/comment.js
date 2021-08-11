@@ -26,6 +26,9 @@ class comment {
 		// assemble element
 		let elem = document.createElement("DIV")
 		elem.classList = ["comment"]
+		elem.onclick = () => {
+			console.log(this.content.id)
+		}
 		elem.innerHTML = `
 <div class="authorbox">
 <span class="author">${this.content.author}${authorinfo}</span>

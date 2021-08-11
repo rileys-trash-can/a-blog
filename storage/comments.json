@@ -4,7 +4,7 @@
         "author": "87.123.198.124",
         "body": "test"
     },
-    "1-len": 12,
+    "1-len": 13,
     "1-1": {
         "time": 1628532147370,
         "author": "87.123.198.124",
@@ -61,6 +61,15 @@
         "authorinfo": {
             "country": "DE"
         },
-        "body": "gaerhiölfhd"
+        "body": "gaerhiölfhd",
+        "deleted": true
+    },
+    "1-12": {
+        "time": 1628633229656,
+        "author": "DerZombiiie",
+        "authorinfo": {
+            "origin": "console"
+        },
+        "body": "this, as this is a testing blog post\nalso Newlines **no** markdown though :(\nmaybe later!"
     }
 }

@@ -30,7 +30,24 @@ this.get = (post, len) => {
 
 	let ret = []	
 	for ( let i = length-1 ; i > -1 ; i-- ) {
-		ret.push( this.db.get(post + "-" + (i + offset) ) )
+		if ( !this.db.get(post + "-" + (i + offset) ).deleted ) {
+			let c = this.db.get(post + "-" + (i + offset) )
+			c.id = i
+			ret.push( c )
+		}
 	}
 	return {"type":"s","content":ret}
+}
+
+this.delete = (post, comment) => {
+	if ( !this.db.get(post + "-" + comment) ) return {"type":"err","text":"Comment dosn't exist"}
+	let commentBUFF = this.db.get(post + "-" + comment)
+	commentBUFF.deleted = true
+	this.db.set(post + "-" + comment, commentBUFF)
+	return {"type":"s","text":"Success!"}
+}
+
+this.set = (post, commentID, comment) => {
+	this.db.set(post + "-" + commentID, comment)
+	return {"type":"s"}
 }

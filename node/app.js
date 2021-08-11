@@ -10,6 +10,7 @@ var   posts = require("./posts")
 var   comments = require("./comments")
 const scheduler = require("./scheduler")
 const log = require("./logging")
+var admin = require("./admin")
 // init logging
 log.init( conf.logging, conf.logfile )
 
@@ -31,7 +32,7 @@ const port = 5500
 app.get("/", (req, res) => filestuff.readFS(req, res, "html/index.html", "text/html"))
 app.use("/static", express.static("html"))
 
-// config js file:
+// config stuff:
 app.get("/config.js", (req, res) => {
 	res.type("application/javascript")
 	res.end(`conf = {}
@@ -41,6 +42,8 @@ conf.search_enable = ${conf.search_enable}
 conf.index_post_sort = "${conf.index_post_sort}"
 conf.comments_enabled = ${conf.comments_enabled}\n`)
 })
+log.log("Dumping config:", log.d.datahorder)
+log.log(JSON.stringify(conf), log.d.datahorder)
 
 // console commands:
 con.registercmd( "stop", () => shutdown() )
@@ -57,7 +60,7 @@ con.registercmd( "comment", (arg => {
 			if (!arg[2]) {      console.log("No commentID, dumping all")
 				let len = commentDB.get( arg[1] + "-len" )
 				let ret = []
-				for (let i = 0 ; i > len ; i++ ) {
+				for (let i = 0 ; i < len ; i++ ) {
 					ret.push( commentDB.get( arg[1] + "-" + i ) )
 				}
 				return console.log(ret)
@@ -82,27 +85,34 @@ con.registercmd( "comment", (arg => {
 				time = new Date().getTime()
 				console.log( "Auto-time: using time: " + time)
 			}
+			console.log( arg[3] )
 			console.log( comments.push(arg[1], {
 			"time":  time,
-			"author":arg[3],
-			"body":  body.join(" ")
+			"author":arg[3].replace(/%20/g, " "),
+			"authorinfo":{"origin":"console"},
+			"body":  body.join(" ").replace(/\\n/g, "\n")			
 			}) )
 			break
 
-		case "set":
+		case "delete":
+			if ( !arg[1] || !arg[2] ) return console.log("Usage \"post delete <postID> <commentID>\"")
+			console.log(comments.delete( arg[1], arg[2] ))
+			break
+
+		case "set": // DONT USE! its broken
 			if ( !arg[1] ) return console.log("No post ID specified!")
-			if ( !arg[2] ) return console.log("No content specified!")
+			if ( !arg[2] ) return console.log("No comment specified!")
 
 			body = Object.assign([], arg[3])
 			body.shift()
 			body.shift()
 
-			console.log( comments.set( arg[1], { "body":body.join(" ") } ) )		
+			console.log( comments.set( arg[1], arg[2], { "body":body.join(" ") } ) )		
 			break
 
 		case "sync":
 			console.log("syncing...")
-			t = commetsDB.sync()
+			t = commentDB.sync()
 			if (t) console.log(t)
 			console.log("DONE!")
 			break
@@ -172,6 +182,8 @@ con.registercmd( "post", (arg => {
 
 // shutdown:
 function shutdown() {
+	log.log("Shutting down", log.d.basic)
+	log.clearBUFF()
 	process.exit(1)
 }
 
@@ -184,7 +196,10 @@ posts.rank()
 
 // post auto rank
 if ( conf.post_auto_rank > 0)
-scheduler.schedule(posts.rank, conf.post_ranking_auto)
+scheduler.schedule(() => {
+	posts.rank()
+	log.log("autolranking posts", log.d.basic)
+}, conf.post_ranking_auto)
 
 // readout comments:
 const commentDB = new JSONdb("storage/comments.json", {
@@ -202,6 +217,7 @@ app.get("/posts", (req, res) => {
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
 			} else {
 				res.status( 200 )
+				log.log(`Reading posts sorted by "hot" with a length of ${req.query.len}`, log.d.datahorder)
 				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "hot"))}}`)
 			}
 		} else if ( typeof(req.query.new) != "undefined") {
@@ -210,11 +226,13 @@ app.get("/posts", (req, res) => {
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
 			} else {
 				res.status( 200 )
+				log.log(`Reading posts sorted by "new" with a length of ${req.query.len}`, log.d.datahorder)
 				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "new"))}}`)
 			}
 		}
 	} else {
 		res.status( 200 )
+		log.log(`Reading post ${req.query.post}`, log.d.datahorder)
 		filestuff.readFSr(req, res, "html/posts/index.html", "text/html", "\"a\"//<!--POST-DATA-INJECT-->//", JSON.stringify(postsDB.get(req.query.post)))
 	}
 })
@@ -230,8 +248,9 @@ app.all("/comments", (req, res) => {
 		console.log("commentetded!")
 		// get ip from tkn
 		waiting = true
-		fetch(conf.ipget_endpoint_set.replace("${TOKEN}", req.body.ip)).then(
+		fetch("https:" + conf.ipget_endpoint_set.replace("${TOKEN}", req.body.ip)).then(
 			d => d.text()).then(data=>{
+			log.log(`Trying to comment to post "${req.body.post}", from ip "${data}" (tkn: ${req.body.ip}) with content: "${req.body.body}"`, log.d.datahorder)
 			if (data == "") {
 				res.end(JSON.stringify({"type":"err","text":"ip-tkn"}))
 				return
@@ -239,7 +258,9 @@ app.all("/comments", (req, res) => {
 			ret = comments.push(req.body.post, {
 				"time":  new Date().getTime(),
 				"author":data,
-				"authorinfo":{"country":geoip.lookupCountry(data)},
+				"authorinfo":{
+					"country":geoip.lookupCountry(data),
+					"origin":"web"},
 				"body":  req.body.body
 			})
 			if ( ret.type == "err" ) res.status( 400 )
@@ -248,7 +269,8 @@ app.all("/comments", (req, res) => {
 	}
 	
 	if ( req.query.post ) {
-		ret = comments.get(req.query.post, req.query.len ? req.query.len : undefined)
+		ret = comments.get(req.query.post, req.query.len ? req.query.len : undefined, undefined)
+		log.log(`Reading comments from post "${req.query.post}", with length: ${req.query.len}`)
 		if ( ret.type == "err" ) res.status( 400 )
 		res.end( JSON.stringify(ret) )
 	}
@@ -271,6 +293,20 @@ app.get("/debug/:action", (req, res) => {
 			break
 	}
 })
+
+// admin stuff:
+admin.init(comments, posts, log)
+con.registercmd( "passwd", (arg) => {
+	if ( !arg[0] ) return console.log( "Usage: \"passwd <pass>\"" )
+	console.log( admin.setpass( arg[0] ) )
+})
+con.registercmd( "testpass", (arg) => {
+	if ( !arg[0] ) return console.log("Usage: \"testpass <pass>\"")
+	console.log( admin.pass( arg[0] ) )
+})
+app.use("/admin/", (req, res, next) => admin.indexuse(req, res, next))
+app.get("/admin", (req, res) => filestuff.readFS(req, res, "html/admin/index.html", "text/html"))
+
 
 app.listen(port, () => {
 	console.log(`Server listening on http://localhost:${port}`)

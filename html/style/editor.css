@@ -1,0 +1,12 @@
+URL transformed to HTTPS due to an HSTS policy
+--2021-08-11 04:15:18--  https://lab.lepture.com/editor/editor.css
+Resolving lab.lepture.com (lab.lepture.com)... 172.67.133.196, 104.21.25.69, 2606:4700:3034::6815:1945, ...
+Connecting to lab.lepture.com (lab.lepture.com)|172.67.133.196|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/css]
+Saving to: ‘editor.css.1’
+
+     0K .........                                              10.7M=0.001s
+
+2021-08-11 04:15:19 (10.7 MB/s) - ‘editor.css.1’ saved [9798]
+

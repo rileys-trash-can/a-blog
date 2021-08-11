@@ -1,5 +1,5 @@
 debug: false # enable / disable debug mode
-logging: 0 # WIP - adjust logging levels
+logging: 1337 # WIP - adjust logging levels
 #   -1 - none
 #    0 - basic (Logs new comments)
 #   10 - datahorder (Logs everything (all requests with ip + timestamp))

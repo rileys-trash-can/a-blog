@@ -16,7 +16,7 @@ this.d = {
 
 this.log = ( msg, ll ) => {
 	if(ll => this.ll) {
-		this.writelog( msg + "\n" )
+		this.writelog( new Date().getTime() + " | " + msg + "\n" )
 	}
 	if(this.ll == this.d.haxxer) {
 		console.log(msg)
