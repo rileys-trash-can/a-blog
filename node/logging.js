@@ -16,6 +16,8 @@ this.d = {
 
 this.log = ( msg, ll ) => {
 	if(ll => this.ll) {
+		// prep msg for logging:
+		msg = msg.replace(/\n/g, "\n" + " ".repeat(14) + "| ")
 		this.writelog( new Date().getTime() + " | " + msg + "\n" )
 	}
 	if(this.ll == this.d.haxxer) {

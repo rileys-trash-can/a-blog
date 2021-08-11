@@ -142,4 +142,13 @@ textarea.comment {
 	top: -2em;
 	width: 40em;
 	max-width: calc( 60% );
+	font-family: slkscr;
+}
+.entrybox > .entry.metaentry > .preview > .editor > textarea.editor.desc {
+	width: calc( 100% - 0.5em );
+	resize: none;
+	height: 5em;
+}
+.entrybox > .entry.metaentry > .preview > .editor.author {
+	font-family: slkscr;
 }

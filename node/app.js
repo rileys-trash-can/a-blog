@@ -40,7 +40,7 @@ conf.ipget_endpoint_set = "${conf.ipget_endpoint_set}"
 conf.site_name = "${conf.site_name}"
 conf.search_enable = ${conf.search_enable}
 conf.index_post_sort = "${conf.index_post_sort}"
-conf.comments_enabled = ${conf.comments_enabled}\n`)
+conf.commenting_enabled = ${conf.commenting_enabled}\n`)
 })
 log.log("Dumping config:", log.d.datahorder)
 log.log(JSON.stringify(conf), log.d.datahorder)
@@ -74,7 +74,6 @@ con.registercmd( "comment", (arg => {
 				return console.log("Not all args specified!\nUsage: comment push <post> <time> <author> <content>...")
 			}
 			body = Object.assign([], arg)
-			body.shift()
 			body.shift()
 			body.shift()
 			body.shift()
@@ -244,11 +243,11 @@ app.all("/comments", (req, res) => {
 	res.type("application/json")
 	let ret
 	let waiting
-	if ( req.body.body && req.body.ip && req.body.post ) {
+	if ( req.body.body && req.body.ip && req.body.post && conf.commenting_enabled ) {
 		console.log("commentetded!")
 		// get ip from tkn
 		waiting = true
-		fetch("https:" + conf.ipget_endpoint_set.replace("${TOKEN}", req.body.ip)).then(
+		fetch("https:" + conf.ipget_endpoint_get.replace("${TOKEN}", req.body.ip)).then(
 			d => d.text()).then(data=>{
 			log.log(`Trying to comment to post "${req.body.post}", from ip "${data}" (tkn: ${req.body.ip}) with content: "${req.body.body}"`, log.d.datahorder)
 			if (data == "") {
@@ -304,9 +303,9 @@ con.registercmd( "testpass", (arg) => {
 	if ( !arg[0] ) return console.log("Usage: \"testpass <pass>\"")
 	console.log( admin.pass( arg[0] ) )
 })
-app.use("/admin/", (req, res, next) => admin.indexuse(req, res, next))
+app.use("/admin/", (req, res, next) => admin.pre(req, res, next))
 app.get("/admin", (req, res) => filestuff.readFS(req, res, "html/admin/index.html", "text/html"))
-
+app.post("/admin/post", (req, res) => admin.post(req, res))
 
 app.listen(port, () => {
 	console.log(`Server listening on http://localhost:${port}`)

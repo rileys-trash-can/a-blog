@@ -8,8 +8,8 @@
     <title>derzombiiie.com - home</title>
     <link rel="stylesheet" href="/static/style/fonts.css">
     <link rel="stylesheet" href="/static/style/main.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-	<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+	<link rel="stylesheet" href="/static/style/simplemde.min.css">
+	<script src="/static/js/simplemde.min.js"></script>
     <script src="/static/js/jq.js"></script>
     <script src="/config.js"></script>
     <script src="/static/js/themes.js"></script>
@@ -30,15 +30,22 @@
 				<hr class="seperator">
 				<div class="preview">
 					<div class="editor">
-						<input class="editor title" type="text">
+						<input class="editor title" placeholder="title" type="text">
 						<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
 						<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
+						<textarea class="editor desc">description</textarea>
 					</div>
+					<input class="editor author" placeholder="Author">
 					<button onclick="previewpost()">preview</button>
 					<button onclick="post()">post</button>
+					<button onclick="save()">save localy</button>
+					<input class="editor load" type="file" onchange="load()">
+					<a class="dl"   download="export.post.json"></a>
+					<a class="link" target="_blank" on></a>
 				</div>
 			</div>
     	</div>
+    	
     </div>
 </body>
 </html>

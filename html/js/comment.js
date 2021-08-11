@@ -46,21 +46,21 @@ class comment {
 }
 
 function displaycomments() {
+	if( conf.commenting_enabled )
     commenting = new metaentry(undefined, "comment:", ".content",{"content":
 `Your comment: (no MD)<br>
 <textarea class="comment commtext"></textarea>
 <input class="comment" onclick="sendcomment($('.commtext').val())" type="submit" value="Submit!" \\>`})
 
 	comments = []
-	comments.push( new metaentry(undefined, "comments:", ".content", {"content":
-`These comments are user generated! they are <strong>NOT</strong> (actively) moderated!`, "class":"comments"}))
+	comments.push( new metaentry(undefined, "comments:", ".content",{"content":"", "class":"comments"}))
 
 	// load comments:
 	reloadcommenting()
 }
 
 function reloadcommenting() {
-	$(".comments").html("")
+	$(".comments").html("These comments are user generated! they are <strong>NOT</strong> (actively) moderated! To report one please click <a href=\"/static/reporting.html\" style=\"color:blue\">here</a>!")
 	fetch("/comments?post=" + postDATA.id).then(d=>d.json()).then(data=>{
 		for (i in data.content) {
 			comments.push( new comment( data.content[i] ) )

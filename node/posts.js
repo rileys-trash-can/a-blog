@@ -75,7 +75,6 @@ this.rank = (c) => {
 
 this.read = (count, sort) => {
     let ret = []
-	debugger
     switch (sort) {
     	case "hot":
 		this.ranking.hot.length
@@ -97,4 +96,33 @@ this.read = (count, sort) => {
     return ret
 }
 
+this.push = (post) => {
+	if ( !post ) return {"type":"err","text":"no post"}
+	if ( !post.title || !post.content || !post.create ) return {"type":"err","text":"wrong contents"}
+	
+	if ( post.time == "auto" ) {
+		post.time = new Date().getTime()
+	}
+	
+	let len = this.db.get("len")
+	this.db.set(len, {
+		"autor": post.author,
+		"content": post.content,
+		"create": post.create,
+		"desc": post.desc,
+		"id": len,
+		"rating": {"+":0,"-":0},
+		"tags": post.tags,
+		"title":post.title		
+	})
+	this.db.set("len", len+1)
+	return {"type":"s","text":"Success! postid: " + len,"content":len}
+}
 
+this.set = (postID, post) => {
+	if ( !post ) return {"type":"err","text":"no post"}
+	if ( !post.title || !post.content || !post.create ) return {"type":"err","text":"wrong contents"}
+
+	this.db.set(postID, post)
+	return {"type":"s", "text":"Success, set post \"" + postID + "\"","content":postID}
+}
