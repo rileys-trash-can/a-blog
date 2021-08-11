@@ -8,10 +8,10 @@
     <title>derzombiiie.com - home</title>
     <link rel="stylesheet" href="/static/style/fonts.css">
     <link rel="stylesheet" href="/static/style/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="/static/js/jq.js"></script>
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-	<script src="/config.js"></script>
+    <script src="/config.js"></script>
     <script src="/static/js/themes.js"></script>
     <script src="/static/js/menubar.js"></script>
     <script src="/static/js/entry.js"></script>
@@ -21,9 +21,24 @@
 
 <body>
     <div class="menubox"></div>
-
     <div class="content">
+    	<div class="entrybox">
+			<div class="entry metaentry">
+				<div class="title">
+					post creator
+				</div>
+				<hr class="seperator">
+				<div class="preview">
+					<div class="editor">
+						<input class="editor title" type="text">
+						<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
+						<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
+					</div>
+					<button onclick="previewpost()">preview</button>
+					<button onclick="post()">post</button>
+				</div>
+			</div>
+    	</div>
     </div>
 </body>
-
 </html>

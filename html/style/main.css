@@ -130,3 +130,16 @@ textarea.comment {
 	margin-bottom: 1em;
 }
 
+/* admin/editor */
+.entrybox > .entry.metaentry > .preview > .editor > input.editor.title {
+	width: calc( 100% - 0.5em );
+	font-size: 1.5em;
+	font-family: slkscr;
+	margin-bottom: 0.5em;
+}
+.entrybox > .entry.metaentry > .preview > .editor > input.editor.tags {
+	position: relative;
+	top: -2em;
+	width: 40em;
+	max-width: calc( 60% );
+}

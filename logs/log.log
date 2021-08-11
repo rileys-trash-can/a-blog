@@ -189,3 +189,9 @@
 1628645078201 | Reading posts sorted by "new" with a length of 10
 1628645106038 | Reading posts sorted by "new" with a length of 10
 1628645178501 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1628685248063 | Dumping config:
+1628685248069 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1628685250861 | Reading posts sorted by "new" with a length of 10
+1628702052113 | Reading post 9
+1628702054939 | Reading post testing
