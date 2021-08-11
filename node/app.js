@@ -123,7 +123,7 @@ con.registercmd( "comment", (arg => {
 		case "?":
 		case "h":
 		case "help":
-			console.log("Availible cmds: get, sync, push, set")
+			console.log("Availible cmds: get, sync, push, set, delete")
 			break
 	}
 }))
@@ -174,7 +174,7 @@ con.registercmd( "post", (arg => {
 		case "?":
 		case "h":
 		case "help":
-			console.log("Availible cmds: get, ranking, rank")
+			console.log("Availible cmds: get, ranking, rank, sync")
 			break
 	}
 }))
