@@ -18,10 +18,8 @@ class comment {
 		time    += String(date.getFullYear())
 		
 		// construct author hover info
-		let authorinfo = ""
-		try {
-			authorinfo = " (" + this.content.authorinfo.country + ") "
-		} catch {}
+		let authorinfo = this.content?.authorinfo?.country
+		authorinfo = authorinfo ? `(${authorinfo})` : "";
 
 		// assemble element
 		let elem = document.createElement("DIV")
@@ -31,7 +29,7 @@ class comment {
 		}
 		elem.innerHTML = `
 <div class="authorbox">
-<span class="author">${this.content.author}${authorinfo}</span>
+<span class="author">${this.content.author} ${authorinfo}</span>
 <span class="timestamp">wrote at ${time}</span>
 </div>
 <hr class="speperator" \\>

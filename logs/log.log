@@ -389,3 +389,60 @@ err, crashed!"
 1628724793194 | Reading posts sorted by "new" with a length of 10
 1628724876405 | Reading posts sorted by "new" with a length of 10
 1628724933131 | Reading posts sorted by "new" with a length of 10
+1628725143582 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+1628725240817 | Dumping config:
+1628725240823 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1628725244612 | Reading posts sorted by "new" with a length of 10
+1628725246475 | Reading posts sorted by "new" with a length of 10
+1628725270537 | Reading posts sorted by "new" with a length of 10
+1628725275438 | Reading post 2
+1628725278633 | Reading post 0
+1628725281061 | Reading post 1
+1628725281262 | Reading comments from post "1", with length: undefined
+1628725295686 | Reading comments from post "1", with length: undefined
+1628725295771 | Trying to comment to post "1", from ip "94.134.179.7" (tkn: 8082992186638859) with content: "commented!"
+--- SEPERATOR ---
+1628725346917 | Dumping config:
+1628725346917 | {"debug":false,"logging":10,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1628725349491 | Reading post 1
+1628725349758 | Reading comments from post "1", with length: undefined
+1628725350440 | Reading post 1
+1628725350706 | Reading comments from post "1", with length: undefined
+1628725351676 | Reading post 1
+1628725351890 | Reading comments from post "1", with length: undefined
+1628725353350 | Reading post 1
+1628725353588 | Reading comments from post "1", with length: undefined
+1628725354382 | Reading posts sorted by "new" with a length of 10
+1628725355435 | Reading post 0
+1628766421518 | Reading posts sorted by "new" with a length of 10
+1628766557151 | Reading posts sorted by "new" with a length of 10
+1628766559240 | Reading post 0
+1628766563315 | Reading post 1
+1628766563530 | Reading comments from post "1", with length: undefined
+1628766591299 | Reading comments from post "1", with length: undefined
+1628766591378 | Trying to comment to post "1", from ip "94.134.179.229" (tkn: 4936173492598122) with content: "Comment!"
+1628766593113 | Reading post 1
+1628766593405 | Reading comments from post "1", with length: undefined
+1628766621922 | Reading post 1
+1628766622228 | Reading comments from post "1", with length: undefined
+1628766824229 | Reading post undefined
+1628766827581 | Reading post undefined
+1628766828361 | Reading post undefined
+1628766828758 | Reading post undefined
+1628766829391 | Reading post undefined
+1628766829747 | Reading post undefined
+1628766831041 | Reading posts sorted by "new" with a length of 10
+1628766844164 | Reading post 1
+1628766844429 | Reading comments from post "1", with length: undefined
+1628766867952 | Reading post 1
+1628766868208 | Reading comments from post "1", with length: undefined
+1628767108450 | Reading post 1
+1628767112388 | Reading post 1
+1628767184382 | Reading post 1
+1628767196489 | Reading post 1
+1628767211691 | Reading post 1
+1628767211968 | Reading comments from post "1", with length: undefined
+1628767250069 | Reading post 1
+1628767250346 | Reading comments from post "1", with length: undefined
