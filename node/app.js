@@ -14,16 +14,10 @@ var admin = require("./admin")
 // init logging
 log.init( conf.logging, conf.logfile )
 
+
 // general TODO:
 // config! ./config.js for some configuration in js just some form stuff
 // posts.rank timer config'n stuff
-//
-// logging levels log.log(msg, log.d.LEVEL)
-// none - well none
-// basic - access + creation of comments into logfile
-// hacker - same same but in output
-// paranoid - log everything (also shell)
-
 
 const app = express()
 const port = 5500
@@ -260,7 +254,7 @@ app.all("/comments", (req, res) => {
 				"authorinfo":{
 					"country":geoip.lookupCountry(data),
 					"origin":"web"},
-				"body":  req.body.body
+				"body":  req.body.body.replace(/\</g, "&lt;").replace(/\>/g, "&gt;")
 			})
 			if ( ret.type == "err" ) res.status( 400 )
 			res.end(JSON.stringify( ret ))
