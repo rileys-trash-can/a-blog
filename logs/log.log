@@ -880,3 +880,71 @@ err, crashed!"
 1629234726189 | Reading posts sorted by "new" with a length of 5
 1629234729843 | Reading posts sorted by "new" with a length of 5
 1629234768480 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629234837147 | Dumping config:
+1629234837154 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629234837430 | Reading postindex
+1629234837729 | Reading posts sorted by "hot" with a length of 10
+1629235488633 | Reading postindex
+1629235489242 | Reading posts sorted by "hot" with a length of 10
+1629235500485 | Reading postindex
+1629235500928 | Reading posts sorted by "hot" with a length of 10
+1629235506631 | Reading postindex
+1629235507064 | Reading posts sorted by "hot" with a length of 10
+1629235511513 | Reading postindex
+1629235512013 | Reading posts sorted by "hot" with a length of 10
+1629235527641 | Reading postindex
+1629235528130 | Reading posts sorted by "hot" with a length of 10
+1629235555893 | Reading postindex
+1629235556845 | Reading posts sorted by "hot" with a length of 5
+--- SEPERATOR ---
+1629235697921 | Dumping config:
+1629235697927 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629235698648 | Reading postindex
+1629235699258 | Reading posts sorted by "hot" with a length of 5
+1629235716133 | Trying to set post "undefined", as name "Testing 1"
+1629235716134 | Contents: {"author":"a name","content":"\tpost","create":1629235716133,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235718230 | Reading postindex
+1629235718755 | Reading posts sorted by "hot" with a length of 5
+1629235727691 | Reading postindex
+1629235728335 | Reading posts sorted by "hot" with a length of 5
+1629235752932 | Reading postindex
+1629235753377 | Reading posts sorted by "hot" with a length of 5
+1629235770719 | Reading postindex
+1629235771176 | Reading posts sorted by "hot" with a length of 5
+1629235792296 | Trying to set post "preview", as name "Testing 1"
+1629235792297 | Contents: {"author":"a name","content":"\tpost","create":1629235792296,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235795996 | Trying to set post "undefined", as name "Testing 1"
+1629235795998 | Contents: {"author":"a name","content":"\tpost","create":1629235795996,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235800880 | Trying to set post "undefined", as name "Testing 1"
+1629235800882 | Contents: {"author":"a name","content":"\tpost","create":1629235800880,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235804705 | Trying to set post "undefined", as name "Testing 1"
+1629235804706 | Contents: {"author":"a name","content":"\tpost","create":1629235804705,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235808692 | Trying to set post "undefined", as name "Testing 1"
+1629235808693 | Contents: {"author":"a name","content":"\tpost","create":1629235808692,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629235835395 | Reading postindex
+1629235835863 | Reading posts sorted by "hot" with a length of 5
+1629235871656 | Reading postindex
+1629235872132 | Reading posts sorted by "hot" with a length of 5
+1629235878541 | Reading postindex
+1629235879046 | Reading posts sorted by "hot" with a length of 5
+1629235889883 | Reading postindex
+1629235890452 | Reading posts sorted by "hot" with a length of 5
+1629235926294 | Reading postindex
+1629235926869 | Reading posts sorted by "hot" with a length of 5
+1629235960910 | Reading postindex
+1629235961517 | Reading posts sorted by "hot" with a length of 5
+1629235989855 | Reading postindex
+1629235990391 | Reading posts sorted by "hot" with a length of 5
+1629236006423 | Reading postindex
+1629236006951 | Reading posts sorted by "hot" with a length of 5
+1629236011414 | Reading postindex
+1629236011930 | Reading posts sorted by "hot" with a length of 5
+1629236014332 | Reading postindex
+1629236014908 | Reading posts sorted by "hot" with a length of 5
+1629236016452 | Reading postindex
+1629236016883 | Reading posts sorted by "hot" with a length of 5
+1629236486304 | Reading postindex
+1629236486859 | Reading posts sorted by "hot" with a length of 5
+1629236502608 | Reading postindex
+1629236503046 | Reading posts sorted by "hot" with a length of 5
