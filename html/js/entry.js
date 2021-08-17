@@ -1,3 +1,22 @@
+//readout ?page
+param = {}
+{
+let oparam = window.location.search.substr(1).split("&")
+index = undefined
+if ( oparam != "" ) {
+	for ( let i = 0 ; i < oparam.length ; i++ ) {
+		let p = oparam[i].split("=")
+		param[p[0]] = p[1]
+		if ( p[0] == "page" ) {
+			index = Number(p[1])
+		}
+	}
+}
+if ( !index ) {
+	index = 0
+}
+}
+
 class entry {
     constructor(title, author, desc, href, tags, id) {
         this.title = title;
@@ -85,4 +104,62 @@ class metaentry {
     appendto(tag) {
         $(tag ? tag : this.writeto).append(this.createelement());
     }
+}
+
+function GET2param(param) {
+	let k = Object.keys(param)
+	let ret = "?"
+	for ( let i = 0 ; i < k.length ; i++ ) {
+		if ( param[k] == undefined ) {
+			ret += k + "&"
+		} else {
+			ret += k + "=" + param[k] + "&"
+		}
+	}
+	return ret.slice(0, -1)
+}
+
+function pager( len, index ) {
+	console.log ( `len ${len} ; index ${index}`)
+	let p = Object.assign({}, param)
+	let base = window.location.pathname
+	let elem = document.createElement("div")
+	let h = `<div class="pager">\n`
+	p.page = 0
+	h += `<span class="pager entry"><a href="${base + GET2param(p)}">&lt;&lt;</a></span>\n`
+	if ( index > -1 ) {
+		p.page = index - 1
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">&lt;</a></span>\n`
+	}
+	// ------------------------------------
+	if ( 0 <= ( index - 2) ) {
+		p.page = index  - 2
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">${index - 2}</a></span>\n`
+	}
+	if ( 0 <= ( index - 1) ) {
+		p.page = index - 1
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">${index - 1}</a></span>\n`
+	}
+	// ------------------------------------	
+	p.page = index
+	h += `<span class="pager entry selected"><a href="${base + GET2param(p)}">${index}</a></span>\n`
+	// ------------------------------------
+	if ( index + 1 <= len ) {
+		p.page = index + 1
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">${index + 1}</a></span>\n`
+	}
+	if ( index + 2 <= len ) {
+		p.page = index + 2
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">${index + 2}</a></span>\n`
+	}
+	// ------------------------------------
+	if ( index + 1 <= len) {
+		p.page = index + 1
+		h += `<span class="pager entry"><a href="${base + GET2param(p)}">&gt;</a></span>\n`
+	}
+	p.page = len
+	h += `<span class="pager entry"><a href="${base + GET2param(p)}">&gt;&gt;</a></span>\n`
+	h += `</div>\n`
+	elem.innerHTML = h
+	return elem
 }

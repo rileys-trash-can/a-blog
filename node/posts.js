@@ -73,11 +73,10 @@ this.rank = (c) => {
     }
 }
 
-this.read = (count, sort) => {
+this.read = (count, sort, index) => {
     let ret = []
     switch (sort) {
     	case "hot":
-		this.ranking.hot.length
 			for ( let i = 0 ; i < count ; i++ ) {
 				if ( typeof( this.ranking.hot[i] ) == "number" ) {
 					ret.push( this.db.get( this.ranking.hot[i] ) )
@@ -87,9 +86,10 @@ this.read = (count, sort) => {
 			break
 
     	default:
+    		index = index ? index : 0
 		    for ( let i = 0 ; i < count ; i++ ) {
-		        if ( this.db.get( i ) )
-		            ret.push( this.db.get( i ) )
+		        if ( this.db.get( i + index ) )
+		            ret.push( this.db.get( i + index ) )
 		    }
 		    break
     }

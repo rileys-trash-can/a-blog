@@ -204,14 +204,18 @@ comments.init(commentDB)
 app.get("/posts", (req, res) => {
 	if( typeof( req.query.api ) != "undefined" ) {
 		res.type( "application/json" )
+		let len = req.query.len ? req.query.len : 10
+		let index = req.query.page ? req.query.page * len : 0
+		let pagecount = Math.floor( postsDB.get("len") / len)
+		
 		if( typeof( req.query.hot) != "undefined" ) {
 			if( ! ( req.query.len < 50 ) )  {
 				res.status( 400 )
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
 			} else {
 				res.status( 200 )
-				log.log(`Reading posts sorted by "hot" with a length of ${req.query.len}`, log.d.datahorder)
-				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "hot"))}}`)
+				log.log(`Reading posts sorted by "hot" with a length of ${len}`, log.d.datahorder)
+				res.end(`{"type":"s","pages":${pagecount},"content":${JSON.stringify(posts.read(len, "hot"), index)}}`)
 			}
 		} else if ( typeof(req.query.new) != "undefined") {
 			if( ! ( req.query.len < 50 ) )  {
@@ -219,8 +223,8 @@ app.get("/posts", (req, res) => {
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
 			} else {
 				res.status( 200 )
-				log.log(`Reading posts sorted by "new" with a length of ${req.query.len}`, log.d.datahorder)
-				res.end(`{"type":"s","content":${JSON.stringify(posts.read(req.query.len ? req.query.len : 10, "new"))}}`)
+				log.log(`Reading posts sorted by "new" with a length of ${len}`, log.d.datahorder)
+				res.end(`{"type":"s","pages":${pagecount},"content":${JSON.stringify(posts.read(len, "new", index))}}`)
 			}
 		}
 	} else {

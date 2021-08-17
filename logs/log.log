@@ -742,3 +742,141 @@ err, crashed!"
 1629213972588 | Reading posts sorted by "new" with a length of 10
 1629214553064 | Reading posts sorted by "new" with a length of 10
 1629214575204 | Reading posts sorted by "new" with a length of 10
+1629215938497 | Trying to set post "undefined", as name "Testing 1"
+1629215938498 | Contents: {"author":"a name","content":"\tpost","create":1629215938497,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215946797 | Trying to set post "undefined", as name "Testing 1"
+1629215946798 | Contents: {"author":"a name","content":"\tpost","create":1629215946797,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215953223 | Trying to set post "undefined", as name "Testing 1"
+1629215953224 | Contents: {"author":"a name","content":"\tpost","create":1629215953223,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215959360 | Trying to set post "undefined", as name "Testing 1"
+1629215959361 | Contents: {"author":"a name","content":"\tpost","create":1629215959360,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215963949 | Trying to set post "undefined", as name "Testing 1"
+1629215963950 | Contents: {"author":"a name","content":"\tpost","create":1629215963949,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215969948 | Trying to set post "undefined", as name "Testing 1"
+1629215969948 | Contents: {"author":"a name","content":"\tpost","create":1629215969948,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215973497 | Trying to set post "undefined", as name "Testing 1"
+1629215973498 | Contents: {"author":"a name","content":"\tpost","create":1629215973497,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215977424 | Trying to set post "undefined", as name "Testing 1"
+1629215977425 | Contents: {"author":"a name","content":"\tpost","create":1629215977424,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629215980428 | Reading posts sorted by "new" with a length of 10
+1629216002789 | Reading posts sorted by "hot" with a length of 10
+1629216003355 | Reading posts sorted by "hot" with a length of 10
+1629216010185 | Reading posts sorted by "new" with a length of 10
+1629216060239 | Reading posts sorted by "new" with a length of 15
+1629216070038 | Reading posts sorted by "new" with a length of 5
+1629216108400 | Reading posts sorted by "new" with a length of 5
+--- SEPERATOR ---
+1629219127358 | Dumping config:
+1629219127364 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629219130417 | Reading posts sorted by "new" with a length of 5
+1629219135559 | Reading posts sorted by "new" with a length of 5
+1629219147794 | Reading posts sorted by "new" with a length of 5
+1629219152707 | Reading posts sorted by "new" with a length of 5
+1629219164245 | Trying to set post "undefined", as name "Testing 1"
+1629219164246 | Contents: {"author":"a name","content":"\tpost","create":1629219164245,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219168050 | Trying to set post "undefined", as name "Testing 1"
+1629219168051 | Contents: {"author":"a name","content":"\tpost","create":1629219168050,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219171820 | Trying to set post "undefined", as name "Testing 1"
+1629219171821 | Contents: {"author":"a name","content":"\tpost","create":1629219171820,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219174798 | Trying to set post "undefined", as name "Testing 1"
+1629219174798 | Contents: {"author":"a name","content":"\tpost","create":1629219174798,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219178439 | Trying to set post "undefined", as name "Testing 1"
+1629219178439 | Contents: {"author":"a name","content":"\tpost","create":1629219178439,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219182446 | Trying to set post "undefined", as name "Testing 1"
+1629219182447 | Contents: {"author":"a name","content":"\tpost","create":1629219182446,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629219184546 | Reading posts sorted by "new" with a length of 5
+1629219193215 | Reading posts sorted by "new" with a length of 5
+1629219402068 | Reading posts sorted by "new" with a length of 10
+1629219731269 | Reading posts sorted by "new" with a length of 10
+1629219973335 | Reading posts sorted by "new" with a length of 10
+1629219986487 | Reading posts sorted by "new" with a length of 10
+1629220011083 | Reading posts sorted by "new" with a length of 10
+1629220060528 | Reading posts sorted by "new" with a length of 10
+1629220084074 | Reading posts sorted by "new" with a length of 10
+1629220086040 | Reading posts sorted by "new" with a length of 10
+1629220100636 | Reading posts sorted by "new" with a length of 10
+1629220110843 | Reading posts sorted by "new" with a length of 10
+1629220120175 | Reading posts sorted by "new" with a length of 10
+1629220203912 | Reading posts sorted by "new" with a length of 10
+1629228279122 | Reading posts sorted by "new" with a length of 10
+1629228281965 | Reading posts sorted by "new" with a length of 10
+1629229184745 | Reading posts sorted by "new" with a length of 10
+1629229231509 | Reading posts sorted by "new" with a length of 10
+1629229318298 | Reading posts sorted by "new" with a length of 10
+1629229368371 | Reading posts sorted by "new" with a length of 10
+1629229575683 | Reading posts sorted by "new" with a length of 10
+1629229600001 | Reading posts sorted by "new" with a length of 10
+1629229612485 | Reading posts sorted by "new" with a length of 10
+1629230425262 | Reading posts sorted by "new" with a length of 10
+1629230473831 | Reading posts sorted by "new" with a length of 10
+1629230544257 | Reading posts sorted by "new" with a length of 10
+1629230548278 | Reading posts sorted by "new" with a length of 10
+1629230554521 | Reading posts sorted by "new" with a length of 10
+1629230579049 | Reading posts sorted by "new" with a length of 10
+1629230598629 | Reading posts sorted by "new" with a length of 5
+1629230608674 | Reading posts sorted by "new" with a length of 5
+1629230625879 | Reading posts sorted by "new" with a length of 5
+1629230628733 | Reading posts sorted by "new" with a length of 10
+1629230648927 | Trying to set post "undefined", as name "Testing 1"
+1629230648927 | Contents: {"author":"a name","content":"\tpost","create":1629230648927,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629230652254 | Trying to set post "undefined", as name "Testing 1"
+1629230652255 | Contents: {"author":"a name","content":"\tpost","create":1629230652254,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629230656092 | Trying to set post "undefined", as name "Testing 1"
+1629230656093 | Contents: {"author":"a name","content":"\tpost","create":1629230656092,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629230660887 | Trying to set post "undefined", as name "Testing 1"
+1629230660889 | Contents: {"author":"a name","content":"\tpost","create":1629230660887,"desc":"DESCRO�TOPM tp �pst 1","id":-1,"rating":{"+":0,"-":0},"tags":["i","have","tagz"],"title":"Testing 1"}
+1629230666676 | Reading posts sorted by "new" with a length of 5
+1629230744075 | Reading posts sorted by "new" with a length of 5
+1629230855059 | Reading posts sorted by "new" with a length of 5
+1629230862994 | Reading posts sorted by "new" with a length of 5
+1629231820189 | Reading posts sorted by "new" with a length of 5
+1629231827394 | Reading posts sorted by "new" with a length of 5
+1629231831711 | Reading posts sorted by "new" with a length of 5
+1629231869963 | Reading posts sorted by "new" with a length of 5
+1629231880976 | Reading posts sorted by "new" with a length of 5
+1629231884885 | Reading posts sorted by "new" with a length of 5
+1629231888312 | Reading posts sorted by "new" with a length of 5
+1629231945749 | Reading posts sorted by "new" with a length of 5
+1629231992602 | Reading posts sorted by "new" with a length of 5
+1629232074075 | Reading posts sorted by "new" with a length of 5
+1629232080221 | Reading posts sorted by "new" with a length of 5
+1629232139651 | Reading posts sorted by "new" with a length of 5
+1629232206506 | Reading posts sorted by "new" with a length of 5
+1629232233320 | Reading posts sorted by "new" with a length of 5
+1629232253268 | Reading posts sorted by "new" with a length of 5
+1629232260159 | Reading posts sorted by "new" with a length of 5
+1629232279159 | Reading posts sorted by "new" with a length of 5
+1629232283670 | Reading posts sorted by "new" with a length of 5
+1629232347447 | Reading posts sorted by "new" with a length of 5
+1629232398065 | Reading posts sorted by "new" with a length of 5
+1629232468363 | Reading posts sorted by "new" with a length of 5
+1629232516316 | Reading posts sorted by "new" with a length of 5
+1629232533705 | Reading posts sorted by "new" with a length of 5
+1629232572573 | Reading posts sorted by "new" with a length of 5
+1629232616695 | Reading posts sorted by "new" with a length of 5
+1629232625544 | Reading posts sorted by "new" with a length of 5
+1629232628136 | Reading posts sorted by "new" with a length of 5
+1629232630700 | Reading posts sorted by "new" with a length of 5
+1629232632917 | Reading posts sorted by "new" with a length of 5
+1629232638231 | Reading posts sorted by "new" with a length of 5
+1629232724867 | Reading posts sorted by "new" with a length of 5
+1629232727300 | Reading posts sorted by "new" with a length of 5
+1629232732134 | Reading posts sorted by "new" with a length of 5
+1629232740321 | Reading posts sorted by "new" with a length of 5
+1629232743730 | Reading posts sorted by "new" with a length of 5
+1629232878365 | Reading posts sorted by "new" with a length of 5
+1629232899793 | Reading posts sorted by "new" with a length of 5
+1629232907023 | Reading posts sorted by "new" with a length of 5
+1629232942575 | Reading posts sorted by "new" with a length of 5
+1629234667919 | Reading posts sorted by "new" with a length of 5
+1629234673867 | Reading posts sorted by "new" with a length of 5
+1629234676238 | Reading posts sorted by "new" with a length of 5
+1629234685117 | Reading posts sorted by "new" with a length of 5
+1629234688123 | Reading posts sorted by "new" with a length of 5
+1629234692045 | Reading posts sorted by "new" with a length of 5
+1629234696875 | Reading posts sorted by "new" with a length of 5
+1629234700722 | Reading posts sorted by "new" with a length of 5
+1629234703850 | Reading posts sorted by "new" with a length of 5
+1629234726189 | Reading posts sorted by "new" with a length of 5
+1629234729843 | Reading posts sorted by "new" with a length of 5
+1629234768480 | Reading posts sorted by "new" with a length of 10

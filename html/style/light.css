@@ -93,10 +93,43 @@
 	border-top-width: 0.3em;
 	border-top-style: solid;
 }
+.entrybox > .entry > .tags > .tag > a {
+	font-family: slkscr;
+}
 .entrybox > .entry > .tags > .tag:hover {
 	background-color: #6f5dbf33
 }
 
+/* pager */
+.pager {
+	width: 100%;
+	text-align: center;
+}
+.pager > .pager.entry {
+	position: relative;
+	top: 0.4em;
+	left: -0.3em;
+	margin-left: 0.4em;
+
+	padding: 0.15em;
+	padding-top: 0.1em;
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+
+	border-color: #414141;
+	border-width: 1px;
+	border-style: solid;
+
+	border-top-color: #414141;
+	border-top-width: 0.2em;
+	border-top-style: solid;
+}
+.pager > .pager.entry:hover {
+	background-color: #41414133
+}
+.pager > .pager.entry.selected {
+	background-color: #41414133
+}
 
 /* comments */
 .comments > .comment {
