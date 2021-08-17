@@ -164,3 +164,14 @@
 .footer > a.text {
 	font-size: 0.7em;
 }
+
+/* cookie settings */
+.cookiesetting > * {
+	margin-right: 0px;
+	margin-left: 0.5em;
+}
+.cookiesetting {
+	display: flex;
+	justify-content: left;
+}
+
