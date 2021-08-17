@@ -224,9 +224,23 @@ app.get("/posts", (req, res) => {
 			}
 		}
 	} else {
-		res.status( 200 )
-		log.log(`Reading post ${req.query.post}`, log.d.datahorder)
-		filestuff.readFSr(req, res, "html/posts/index.html", "text/html", "\"a\"//<!--POST-DATA-INJECT-->//", JSON.stringify(postsDB.get(req.query.post)))
+		if( typeof(req.query.post) != "undefined" ) {
+			res.status( 200 )
+			log.log(`Reading post ${req.query.post}`, log.d.datahorder)
+			filestuff.readFSr(req, res, "html/posts/index.html", "text/html", `""//<!--POST-DATA-INJECT-->//`, JSON.stringify(postsDB.get(req.query.post)))
+		} else {
+			let sort = "hot"
+			if ( typeof(req.query.sort) != "undefined" ) {
+				sort = req.query.sort
+				if( !["hot","new","rit"].includes( req.query.sort ) ) {
+					res.end("FUCK YOU!")
+					return
+				}
+			}
+			res.status( 200 )
+			log.log(`Reading postindex`, log.d.datahorder)
+			filestuff.readFSr(req, res, "html/posts/index.list.html", "text/html", `""//<!--SORT-INJECT-->//`, sort)
+		}
 	}
 })
 

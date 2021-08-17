@@ -38,7 +38,7 @@ $(document).ready(() => {
 	let e = []
 	e.push({"type":"href", "text":conf.site_name,   "href":"/"})
 	e.push({"type":"href", "text":"posts",          "href":"/posts"})
-	e.push({"type":"href", "text":"newest",         "href":"/posts?newest"})
+	e.push({"type":"href", "text":"newest",         "href":"/posts?sort=new"})
 	if(conf.search_enable) e.push({"type":"input","id"  :"search-field",   "icon":"/static/icon/search.svg" ,"alt":"search"})
 	    
     a = new menubar( ".menubox", e)

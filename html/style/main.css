@@ -10,7 +10,7 @@ body, html {
     background-color: white;
 }
 .content {
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0px;
     left: 0px;
@@ -152,3 +152,56 @@ textarea.comment {
 .entrybox > .entry.metaentry > .preview > .editor.author {
 	font-family: slkscr;
 }
+
+/* footer */
+.footer {
+	width: 100%;
+	position: relative;
+	top: 4em;
+	text-align: center;
+}
+.footer > a.text {
+	position: relative;
+	padding: 0.2em;
+	font-size: 0.7em;
+}
+
+/* cookie settings */
+.cookie.setting {
+	width: 2em;
+	height: 1em;
+	border-radius: 1em;
+}
+.cookie.setting > .switcher {
+	width: 0.8em;
+	height: 0.8em;
+	border-radius: 0.6em;
+	background-color: white;
+}
+.cookie.setting.noff {
+	background-color: orange;
+}
+.cookie.setting.noff > .switcher {
+	position: relative;
+	top: 0.1em;
+	left: 0.6em;
+}
+
+.cookie.setting.on {
+	background-color: green;
+}
+.cookie.setting.on > .switcher {
+	position: relative;
+	top: 0.1em;
+	left: 1em;
+}
+
+.cookie.setting.off {
+	background-color: red;
+}
+.cookie.setting.off > .switcher {
+	position: relative;
+	top: 0.1em;
+	left: 0.1em;
+}
+

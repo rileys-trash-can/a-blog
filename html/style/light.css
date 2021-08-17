@@ -99,3 +99,10 @@
 
 /* other stuff */
 
+/* footer */
+.footer {
+	color: #414141;
+}
+.footer > a.text {
+	font-size: 0.7em;
+}
