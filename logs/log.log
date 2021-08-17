@@ -721,3 +721,24 @@ err, crashed!"
 1629150195225 | Reading posts sorted by "hot" with a length of 10
 1629150244240 | Reading postindex
 1629150244824 | Reading posts sorted by "hot" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629161822577 | Dumping config:
+1629161822584 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629212141086 | Reading posts sorted by "new" with a length of 10
+1629213138214 | Reading posts sorted by "new" with a length of 10
+1629213160051 | Reading posts sorted by "new" with a length of 10
+1629213174056 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629213206780 | Dumping config:
+1629213206786 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629213248066 | Reading posts sorted by "new" with a length of 10
+1629213294278 | Reading posts sorted by "new" with a length of 10
+1629213298344 | Reading posts sorted by "new" with a length of 10
+1629213311129 | Reading posts sorted by "new" with a length of 10
+1629213342304 | Reading posts sorted by "new" with a length of 10
+1629213812178 | Reading posts sorted by "new" with a length of 10
+1629213820059 | Reading posts sorted by "new" with a length of 10
+1629213972588 | Reading posts sorted by "new" with a length of 10
+1629214553064 | Reading posts sorted by "new" with a length of 10
+1629214575204 | Reading posts sorted by "new" with a length of 10

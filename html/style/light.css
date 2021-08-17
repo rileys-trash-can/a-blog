@@ -69,6 +69,34 @@
     border-top-width: 1px;
     border-top-style: solid;
 }
+.entrybox > .entry > .tags {
+	height: 2em;
+}
+.entrybox > .entry > .tagtitle {
+	font-size: 0.7em;
+	font-style: italic;
+}
+.entrybox > .entry > .tags > .tag {
+	position: relative;
+	top: 0.4em;
+	left: -0.3em;
+	margin-left: 0.4em;
+
+	padding: 0.15em;
+	padding-top: 0.1em;
+
+	border-color: #6d5dbf;
+	border-width: 1px;
+	border-style: solid;
+
+	border-top-color: #6f5dbf;
+	border-top-width: 0.3em;
+	border-top-style: solid;
+}
+.entrybox > .entry > .tags > .tag:hover {
+	background-color: #6f5dbf33
+}
+
 
 /* comments */
 .comments > .comment {
@@ -100,9 +128,6 @@
 /* other stuff */
 
 /* footer */
-.footer {
-	color: #414141;
-}
 .footer > a.text {
 	font-size: 0.7em;
 }

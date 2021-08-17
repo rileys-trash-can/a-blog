@@ -8,6 +8,12 @@ class entry {
         this.id = id
     }
     createelement() {
+		// create taglist
+		let tags = ""
+		for ( let i = 0 ; i < this.tags.length ; i++ ) {
+			tags += `<span class="tag"><a href="/search?tag=${this.tags[i]}">${this.tags[i]}</a></span>`
+		}
+    
         let element = document.createElement("DIV");
         element.innerHTML +=
             `<div class="entry">
@@ -15,6 +21,9 @@ class entry {
 <div class="author">BY <a class="author" href="/author?author=${this.author}">${this.author}</a></div>
 <hr  class="seperator" \>
 <div class="preview">${this.desc}</div>
+<hr  class="seperator" \>
+<div class="tagtitle">Tags:</div>
+<div class="tags">${tags}</div>
 </div>`
         element.classList = ["entrybox"]
         return element
