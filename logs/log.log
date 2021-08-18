@@ -1225,3 +1225,81 @@ err, crashed!"
 1629290106061 | Trying to vote on post: 1; and vote: -; iptkn: 4556512502163765; ip: 82.207.236.224;
 1629290108664 | Trying to vote on post: 1; and vote: +; iptkn: 6268991658303812; ip: 82.207.236.224;
 1629290317527 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629293623495 | Dumping config:
+1629293623501 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629293879008 | Reading posts sorted by "new" with a length of 10
+1629293924472 | Reading posts sorted by "new" with a length of 10
+1629294088568 | Reading posts sorted by "new" with a length of 10
+1629294093947 | Reading posts sorted by "new" with a length of 10
+1629294112978 | Reading post 2
+1629294132084 | Reading posts sorted by "new" with a length of 10
+1629294161794 | Reading posts sorted by "new" with a length of 10
+1629294238280 | Reading posts sorted by "new" with a length of 10
+1629294249100 | Reading posts sorted by "new" with a length of 10
+1629294259671 | Reading posts sorted by "new" with a length of 10
+1629294309635 | Reading posts sorted by "new" with a length of 10
+1629294342655 | Reading posts sorted by "new" with a length of 10
+1629294382743 | Reading posts sorted by "new" with a length of 10
+1629294390640 | Reading posts sorted by "new" with a length of 10
+1629294396933 | Reading posts sorted by "new" with a length of 10
+1629294428467 | Reading posts sorted by "new" with a length of 10
+1629294437332 | Reading posts sorted by "new" with a length of 10
+1629294446755 | Reading posts sorted by "new" with a length of 10
+1629294456414 | Reading posts sorted by "new" with a length of 10
+1629294471428 | Reading posts sorted by "new" with a length of 10
+1629294486852 | Reading posts sorted by "new" with a length of 10
+1629294513759 | Reading posts sorted by "new" with a length of 10
+1629294549920 | Reading posts sorted by "new" with a length of 10
+1629294558070 | Reading posts sorted by "new" with a length of 10
+1629294572775 | Reading posts sorted by "new" with a length of 10
+1629294588591 | Reading posts sorted by "new" with a length of 10
+1629294607298 | Reading posts sorted by "new" with a length of 10
+1629294647532 | Reading posts sorted by "new" with a length of 10
+1629294657301 | Reading posts sorted by "new" with a length of 10
+1629294702684 | Reading posts sorted by "new" with a length of 10
+1629294721644 | Reading posts sorted by "new" with a length of 10
+1629294790383 | Reading posts sorted by "new" with a length of 10
+1629295105584 | Reading posts sorted by "new" with a length of 10
+1629295141831 | Reading posts sorted by "new" with a length of 10
+1629295172281 | Reading posts sorted by "new" with a length of 10
+1629295304733 | Reading posts sorted by "new" with a length of 10
+1629295331345 | Reading postindex
+1629295331827 | Reading posts sorted by "hot" with a length of 5
+1629295334280 | Reading postindex
+1629295334784 | Reading posts sorted by "hot" with a length of 5
+1629295339961 | Reading posts sorted by "new" with a length of 10
+1629295341093 | Reading post 1
+1629295341538 | Reading comments from post "1", with length: undefined
+1629295423741 | Reading post 1
+1629295424231 | Reading comments from post "1", with length: undefined
+1629295436132 | Reading post 1
+1629295436566 | Reading comments from post "1", with length: undefined
+1629295494323 | Reading post 1
+1629295494822 | Reading comments from post "1", with length: undefined
+1629295510069 | Reading post 1
+1629295510607 | Reading comments from post "1", with length: undefined
+1629295563320 | Reading post 1
+1629295563868 | Reading comments from post "1", with length: undefined
+1629295574709 | Reading post 1
+1629295575167 | Reading comments from post "1", with length: undefined
+1629295592973 | Reading post 1
+1629295593487 | Reading comments from post "1", with length: undefined
+1629295606388 | Reading post 1
+1629295606954 | Reading comments from post "1", with length: undefined
+1629295619490 | Reading post 1
+1629295619970 | Reading comments from post "1", with length: undefined
+1629295638829 | Reading post 1
+1629295639396 | Reading comments from post "1", with length: undefined
+1629295654505 | Reading post 1
+1629295655031 | Reading comments from post "1", with length: undefined
+1629295724205 | Reading post 1
+1629295724701 | Reading comments from post "1", with length: undefined
+1629295741886 | Reading post 1
+1629295742456 | Reading comments from post "1", with length: undefined
+1629296053066 | Reading post 1
+1629296376644 | Reading post 1
+1629296377252 | Reading comments from post "1", with length: undefined
+1629298025786 | Reading posts sorted by "new" with a length of 10
+1629298038343 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---

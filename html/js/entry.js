@@ -46,8 +46,8 @@ class entry {
 <div class="brow">
 <span class="tags">${tags}</span>
 <span class="rating">
-<span class="plus"  title="click to vote +"><a class="upvote"  >${this.rating["+"]}</a></span>
-<span class="minus" title="click to vote -"><a class="downvote">${this.rating["-"]}</a></span>
+<span class="plus"  title="upvotes"><a class="upvote"  >${this.rating["+"]}</a></span>
+<span class="minus" title="downvotes"><a class="downvote">${this.rating["-"]}</a></span>
 </div>
 </div>
 </div>`

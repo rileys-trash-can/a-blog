@@ -6,8 +6,11 @@ a {
     text-decoration: none;
 }
 body, html {
+	position: absolute;
     width: 100%;
     background-color: white;
+	top: -4px;
+	left: -4px;
 }
 .content {
     position: relative;
@@ -128,6 +131,9 @@ textarea.comment {
 	position: relative;
 	top: 0.5em;
 	margin-bottom: 1em;
+}
+.commentbox {
+	padding-bottom: 1em;
 }
 
 /* admin/editor */

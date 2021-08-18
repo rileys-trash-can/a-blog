@@ -1,10 +1,14 @@
-/* Light-theme */
+/* Dark-theme */
+
+body, html {
+	background-color: #202020;
+}
 
 /* MENU */
 .menubox {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: black;
+    border-bottom-color: #AAAAAA;
 }
 .menubox > .menubar {
 
@@ -15,7 +19,8 @@
     border-style: solid;
     border-radius: 1px;
     border-width: 2px;
-    border-color: black;
+    border-color: #AAAAAA;
+    color: #AAAAAA;
 }
 .menubox > .menubar > *:not(.spacer):hover {
     background-color: #6d5dbf33;
@@ -42,7 +47,7 @@
     position: relative;
     font-size: 3em;
     font-family: slkscr;
-    color: black;
+    color: #AAAAAA;
 }
 .entrybox > .entry > .title:hover {
     text-decoration: underline;
@@ -54,11 +59,12 @@
     font-style: italic;
     font-family: slkscr;
     font-size: 1em;
+	color: black;
 }
 .entrybox > .entry > .author > .author {
     font-family: slkscr;
     text-decoration: none;
-    color: black;
+	color: #AAAAAA;
 }
 .entrybox > .entry > .author > .author:hover {
     text-decoration: underline;
@@ -93,8 +99,23 @@
 	border-top-width: 0.3em;
 	border-top-style: solid;
 }
+.entrybox > .entry > .preview {
+	color: #AAAAAA;
+}
+.entrybox > .entry > .preview > * {
+	color: #AAAAAA;
+}
+.entrybox > .entry.metaentry > .preview > input {
+	color: black;
+}
+.entrybox > .entry.metaentry > .preview > textarea {
+	background-color: #202020;
+	border-color: black;
+	color: #AAAAAA;
+}
 .entrybox > .entry > .brow > .tags > .tag > a {
 	font-family: slkscr;
+	color: #AAAAAA;
 }
 .entrybox > .entry > .brow >.tags > .tag:hover {
 	background-color: #6f5dbf33
@@ -126,6 +147,7 @@
 }
 .entrybox > .entry > .brow > .rating > span > a {
 	font-family: slkscr;
+	color: #AAAAAA;
 }
 .entrybox > .entry > .brow > .rating > span.plus {
 	border-color: green;
@@ -139,7 +161,9 @@
 .entrybox > .entry > .brow > .rating > span.minus:hover {
 	background-color: #7F000033
 }
-
+* {
+	color: #AAAAAA;
+}
 /* pager */
 .pager {
 	width: 100%;
@@ -165,13 +189,14 @@
 	border-top-style: solid;
 }
 .pager > .pager.entry > a {
+	color: #AAAAAA;
 	font-family: slkscr;
 }
 .pager > .pager.entry:hover {
 	background-color: #41414133
 }
 .pager > .pager.entry.selected {
-	background-color: #41414133
+	background-color: #AAAAAA33
 }
 
 /* comments */
@@ -190,16 +215,19 @@
 	position: relative;
 	font-size: 1.5em;
 	font-family: slkscr;
-	color: black;
+	color: #AAAAAA;
 }
 .comments > .comment > .authorbox > .timestamp {
 	font-size: 0.8em;
 	font-style: italic;
+	color: #AAAAAA;
+}
+.comments > .comment > .body {
+	color: #AAAAAA;
 }
 .comments > .hidden {
 	visibility: hidden;
 }
-
 
 /* other stuff */
 
