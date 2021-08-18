@@ -1,21 +1,5 @@
 {
     "0": {
-        "title": "My 1 Post",
-        "author": "derzombiiie",
-        "desc": "Lorem ipsum dolor sit.",
-        "href": "#",
-        "tags": [
-            "testing",
-            "$$$"
-        ],
-        "rating": {
-            "+": 99,
-            "-": 0
-        },
-        "create": 1,
-        "id": 0
-    },
-    "1": {
         "title": "Im trying MD post",
         "author": "derzombiiie",
         "desc": "HERE PRESS THIS THIS NOT CONTENT THIS DESC!",
@@ -33,9 +17,9 @@
             "-": 0
         },
         "create": 2,
-        "id": 1
+        "id": 0
     },
-    "2": {
+    "1": {
         "title": "Warum sind k.rum und was ist k.?",
         "author": "olli",
         "desc": "Warum nicht! hier text Lorem ipsum dolor sit!",
@@ -50,7 +34,7 @@
             "-": 14
         },
         "create": 1628252855774,
-        "id": 2
+        "id": 1
     },
-    "len": 3
+    "len": 1
 }

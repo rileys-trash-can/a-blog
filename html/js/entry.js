@@ -38,10 +38,10 @@ class entry {
         element.innerHTML +=
             `<div class="entry">
 <a class="title" href="/posts?post=${this.id}">${this.title}</a>
-<div class="author">BY <a class="author" href="/author?author=${this.author}">${this.author}</a></div>
-<hr  class="seperator" \>
+<div class="author">BY <a class="author" href="/search?author=${this.author}">${this.author}</a></div>
+<hr  class="seperator">
 <div class="preview">${this.desc}</div>
-<hr  class="seperator" \>
+<hr  class="seperator">
 <div class="tagtitle">Tags:</div>
 <div class="brow">
 <span class="tags">${tags}</span>

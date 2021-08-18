@@ -276,11 +276,14 @@ app.all("/comments", (req, res) => { // + rating
 				"author":data,
 				"authorinfo":{
 					"country":geoip.lookupCountry(data),
-					"origin":"web"},
+					"origin":"web"
+				},
 				"body":  req.body.body.replace(/\</g, "&lt;").replace(/\>/g, "&gt;")
 			})
 			if ( ret.type == "err" ) res.status( 400 )
-			res.end(JSON.stringify( ret ))
+			setTimeout(() => {
+				res.end(JSON.stringify( ret ))
+			}, 10)
 		})
 	}
 	

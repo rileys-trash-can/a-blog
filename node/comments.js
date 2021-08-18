@@ -15,8 +15,9 @@ this.push = (post, comment) => {
 }
 
 this.get = (post, len) => {
+debugger
 	if ( !post ) return {"type":"err","text":"no post"}
-	if ( !(typeof(len) == "number" || typeof(len) == "undefined") ) return {"type":"err","text":"bad length"}
+	if ( !typeof(len) == "number" || !typeof(len) == "undefined" ) return {"type":"err","text":"bad length"}
 
 	let length = this.db.get(post + "-len") ? this.db.get(post + "-len") : 0
 	let abslen = this.db.get(post + "-len") ? this.db.get(post + "-len") : 0
