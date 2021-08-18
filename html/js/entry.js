@@ -18,12 +18,13 @@ if ( !index ) {
 }
 
 class entry {
-    constructor(title, author, desc, href, tags, id) {
+    constructor(title, author, desc, href, tags, id, rating) {
         this.title = title;
         this.author = author;
         this.desc = desc;
         this.href = href;
         this.tags = tags;
+        this.rating = rating
         this.id = id
     }
     createelement() {
@@ -42,7 +43,13 @@ class entry {
 <div class="preview">${this.desc}</div>
 <hr  class="seperator" \>
 <div class="tagtitle">Tags:</div>
-<div class="tags">${tags}</div>
+<div class="brow">
+<span class="tags">${tags}</span>
+<span class="rating">
+<span class="plus"  title="click to vote +"><a class="upvote"  >${this.rating["+"]}</a></span>
+<span class="minus" title="click to vote -"><a class="downvote">${this.rating["-"]}</a></span>
+</div>
+</div>
 </div>`
         element.classList = ["entrybox"]
         return element

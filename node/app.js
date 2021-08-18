@@ -194,6 +194,11 @@ scheduler.schedule(() => {
 	log.log("autolranking posts", log.d.basic)
 }, conf.post_ranking_auto)
 
+// ip-rating "user"/
+// => You can only rate an article once per ip
+posts.IPs = {}
+// see posts.js
+
 // readout comments:
 const commentDB = new JSONdb("storage/comments.json", {
 	"syncOnWrite":conf.comment_sync_on_write
@@ -208,7 +213,7 @@ app.get("/posts", (req, res) => {
 		let index = req.query.page ? req.query.page * len : 0
 		let pagecount = Math.floor( postsDB.get("len") / len)
 
-		if( typeof( req.query.hot) != "undefined" ) {
+		if( typeof( req.query.hot ) != "undefined" ) {
 			if( ! ( req.query.len < 50 ) )  {
 				res.status( 400 )
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
@@ -217,7 +222,7 @@ app.get("/posts", (req, res) => {
 				log.log(`Reading posts sorted by "hot" with a length of ${len}`, log.d.datahorder)
 				res.end(`{"type":"s","pages":${pagecount},"content":${JSON.stringify(posts.read(len, "hot"), index)}}`)
 			}
-		} else if ( typeof(req.query.new) != "undefined") {
+		} else if ( typeof( req.query.new ) != "undefined" ) {
 			if( ! ( req.query.len < 50 ) )  {
 				res.status( 400 )
 				res.end( JSON.stringify({"type":"err","text":"no len or to high specified"}) )		
@@ -251,7 +256,7 @@ app.get("/posts", (req, res) => {
 // comments:
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.all("/comments", (req, res) => {
+app.all("/comments", (req, res) => { // + rating
 	res.type("application/json")
 	let ret
 	let waiting
@@ -279,12 +284,27 @@ app.all("/comments", (req, res) => {
 		})
 	}
 	
-	if ( req.query.post ) {
+	if ( req.query.post && req.query.rate == undefined ) {
 		ret = comments.get(req.query.post, req.query.len ? req.query.len : undefined, undefined)
 		log.log(`Reading comments from post "${req.query.post}", with length: ${req.query.len}`)
 		if ( ret.type == "err" ) res.status( 400 )
 		res.end( JSON.stringify(ret) )
 	}
+
+	if ( req.query.rate != undefined && req.query.post && req.query.rating && req.query.ip ) {
+		waiting = true
+		fetch("https:" + conf.ipget_endpoint_get.replace("${TOKEN}", req.query.ip)).then(
+			(d) => d.text()).then(data => {
+			log.log("Trying to vote on post: "+req.query.post+"; and vote: "+req.query.rating+"; iptkn: "+req.query.ip+"; ip: " +data+";", log.d.datahorder)
+			if ( data == "" ) {
+				res.end(JSON.stringify({"type":"err","text":"ip-tkn"}))
+			} else {
+				let ret = posts.rate( req.query.post, req.query.rating, data )
+				res.end( JSON.stringify( ret ) )
+			}
+		})
+	}
+	
 	if ( !res.finished && !waiting ) {
 		res.status ( 501 )
 		res.end(JSON.stringify({"type":"err","text":"not implemented!"}))

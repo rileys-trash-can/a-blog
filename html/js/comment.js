@@ -82,7 +82,40 @@ function sendcomment(comment) {
 			body: comment, 
 			ip: token
 		}).then(
-			reloadcommenting()
+			setTimeout( reloadcommenting, 50 )
 		)
+	})
+}
+
+function vote(a, uv, dv) {
+	// get ip:
+	let token = Math.floor( Math.random()*10**16 )
+	fetch(conf.ipget_endpoint_set.replace("${TOKEN}", token), {mode: "no-cors"}).then(()=>{
+		// comment
+		a = a.replace("+", "%2B")
+		console.log(postDATA.id, comment, token)
+		fetch(`/comments?rate&post=${postDATA.id}&rating=${a}&ip=${token}`).then(d=>d.json()).then(d=>{
+			if ( d.type != "s" ) {
+				alert( "Error: " + d.text )
+			} else {
+				console.log(`voted! ${JSON.stringify(d)}`)
+
+				// refresh votes
+				setTimeout(() => {
+					uv.html(d.content["+"]) // upvote refresh
+					dv.html(d.content["-"]) // downvote refresh
+
+					// do the background color
+					console.log(a)
+					if ( a == "-" ) {
+						dv.parent().attr("style", "background-color: #7F000033;")
+						uv.parent().attr("style", "")
+					} else {
+						uv.parent().attr("style", "background-color: #007F0033;")
+						dv.parent().attr("style", "")
+					}
+				}, 50)
+			}
+		})
 	})
 }

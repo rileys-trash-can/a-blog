@@ -126,3 +126,41 @@ this.set = (postID, post) => {
 	this.db.set(postID, post)
 	return {"type":"s", "text":"Success, set post \"" + postID + "\"","content":postID}
 }
+
+
+this.IPs;
+this.ipcheck = (post, ip) => {
+	if ( !this.IPs[ip] ) return false
+	if ( !this.IPs[ip][post] ) return false
+	return this.IPs[ip][post]
+}
+
+this.ipset = (post, ip, rating) => {
+	if ( !this.IPs[ip] ) {
+		this.IPs[ip] = {}
+	}
+	this.IPs[ip][post] = rating
+}
+
+this.rate = ( post, rating, ip ) => {
+	if ( !post || !rating ) return {"type":"err", "text":"not enough args"}
+
+	let ipi = this.ipcheck( post, ip )
+	let p = this.db.get( post )
+
+	console.log(`ip: ${ip}; ipi:${JSON.stringify(ipi)}`)
+	if ( ip ) {
+		if ( ipi == "+" ) {
+			p.rating["+"]--
+		}
+		if ( ipi == "-" ) {
+			p.rating["-"]--
+		}
+		
+	}
+
+	this.ipset( post, ip, rating )
+	p.rating[rating]++
+	this.db.set( post , p )
+	return {"type":"s", "text":"success!", "content": p.rating}
+}

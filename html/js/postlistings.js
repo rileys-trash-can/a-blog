@@ -10,7 +10,7 @@ $(document).ready(() => {
 
 		posts = []
 		for ( let i = 0 ; i < data.content.length ; i++ ) {
-			posts.push( new entry( data.content[i].title, data.content[i].author, data.content[i].desc, "#", data.content[i].tags, data.content[i].id ) )
+			posts.push( new entry( data.content[i].title, data.content[i].author, data.content[i].desc, "#", data.content[i].tags, data.content[i].id, data.content[i].rating ) )
 			posts[posts.length-1].appendto(".content")
 		}
 
