@@ -208,10 +208,6 @@ app.get("/posts", (req, res) => {
 		let index = req.query.page ? req.query.page * len : 0
 		let pagecount = Math.floor( postsDB.get("len") / len)
 
-		console.log("len "+len)
-		console.log("index "+index)
-		console.log("pc "+pagecount)
-		
 		if( typeof( req.query.hot) != "undefined" ) {
 			if( ! ( req.query.len < 50 ) )  {
 				res.status( 400 )

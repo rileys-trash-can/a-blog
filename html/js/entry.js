@@ -127,7 +127,7 @@ function pager( len, index ) {
 	let h = `<div class="pager">\n`
 	p.page = 0
 	h += `<span class="pager entry"><a href="${base + GET2param(p)}">&lt;&lt;</a></span>\n`
-	if ( index > -1 ) {
+	if ( 0 <= ( index - 1 ) ) {
 		p.page = index - 1
 		h += `<span class="pager entry"><a href="${base + GET2param(p)}">&lt;</a></span>\n`
 	}
