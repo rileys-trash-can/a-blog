@@ -177,6 +177,10 @@ con.registercmd( "post", (arg => {
 function shutdown() {
 	log.log("Shutting down", log.d.basic)
 	log.clearBUFF()
+
+	postsDB.sync()
+	commentDB.sync()
+	
 	process.exit(1)
 }
 
