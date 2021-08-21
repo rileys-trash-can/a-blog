@@ -55,7 +55,7 @@ body, html {
 .entrybox > .metaentry > .title:hover {
     text-decoration: none;
 } 
-.entrybox > .entry > .author {
+.entrybox > .entry > .subtitle {
     font-style: italic;
     font-family: slkscr;
     font-size: 1em;

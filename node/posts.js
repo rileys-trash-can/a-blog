@@ -16,6 +16,7 @@ this.rank = (c) => {
             if ( this.db.get(i) ) {
                 this.postBUFF[i] = this.db.get(i);
             } else {
+            	this.len = i
                 readall = true
             }
             i++
@@ -75,6 +76,9 @@ this.rank = (c) => {
 
 this.read = (count, sort, index) => {
     let ret = []
+    if ( count == -1 ) {
+    	count = this.length
+    }
     switch (sort) {
     	case "hot":
 			for ( let i = 0 ; i < count ; i++ ) {
@@ -116,6 +120,7 @@ this.push = (post) => {
 		"title":post.title		
 	})
 	this.db.set("len", len+1)
+	this.index()
 	return {"type":"s","text":"Success! postid: " + len,"content":len}
 }
 
@@ -163,4 +168,77 @@ this.rate = ( post, rating, ip ) => {
 	p.rating[rating]++
 	this.db.set( post , p )
 	return {"type":"s", "text":"success!", "content": p.rating}
+}
+
+// does the indexing for search by tags
+this.index = () => {
+	let len = this.len
+	this.tags = []
+
+	for ( let i = 0 ;  i < len ; i++ ) {
+		this.tags[i] = this.db.get( i ).tags.sort()
+	}
+
+	
+}
+
+this.search = ( tags, sort, pinfo ) => {
+	// search goes through all articles and counts the amount of matching tags; then it uses sort to sort stuff though the this.ranking[sort]
+	let len = this.len
+	let rnk = []
+
+	console.log( len )
+	// rnk[postID] = amount of matching tags
+	for ( let l = 0 ; l < len ; l++ ) {
+		for ( let i = 0 ; i < tags.length ; i++ ) {
+			if ( this.tags[l].includes( tags[i] ) ) {
+			console.log(rnk)
+				if ( !rnk[l] ) {
+					rnk[l] = 0
+				}
+				rnk[l]++
+			}
+		}
+	}
+
+	console.log(rnk)
+	
+	let rem = true
+	let sorted = []
+	let pos = -1;
+	let hig = 0;
+	while ( rem ) {
+		for ( let i = 0 ; i < rnk.length ; i++ ) {
+			if ( rnk[i] ) {
+				if ( rnk[i] > hig ) {
+					hig = rnk[i]
+					pos = i
+				}
+			}
+		}
+		if ( pos != -1 ) {
+			sorted.push( pos )
+			rnk[pos] = undefined
+			hig = 0
+			pos = -1
+		} else {
+			rem = false
+		}
+	}
+
+	if ( sort ) {
+		// do sorting
+		// another few for loops
+	}
+
+	if ( pinfo ) {
+		// add post data to response
+		let ns = []
+		for ( let i = 0 ; i < sorted.length ; i++ ) {
+			ns.push( this.db.get( sorted[i] ) )
+		}
+		return ns
+	}
+
+	return sorted
 }

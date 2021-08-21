@@ -1409,3 +1409,194 @@ err, crashed!"
 --- SEPERATOR ---
 --- SEPERATOR ---
 --- SEPERATOR ---
+--- SEPERATOR ---
+1629306246326 | Dumping config:
+1629306246333 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629306252094 | Reading posts sorted by "new" with a length of 10
+1629373879812 | Reading posts sorted by "new" with a length of 10
+1629373889829 | Reading post 0
+1629373890195 | Reading comments from post "0", with length: undefined
+1629373891354 | Trying to vote on post: 0; and vote: +; iptkn: 2383825147775950; ip: 94.134.179.144;
+1629373892779 | Trying to vote on post: 0; and vote: -; iptkn: 2054701222640405; ip: 94.134.179.144;
+1629373893432 | Trying to vote on post: 0; and vote: +; iptkn: 4439234544853926; ip: 94.134.179.144;
+1629373894017 | Trying to vote on post: 0; and vote: +; iptkn: 5619401935745137; ip: 94.134.179.144;
+1629373897038 | Reading post 0
+1629373917421 | Trying to vote on post: 0; and vote: -; iptkn: 4134206592697756; ip: 94.134.179.144;
+1629373943402 | Reading comments from post "0", with length: undefined
+1629373943454 | Trying to comment to post "0", from ip "94.134.179.144" (tkn: 8449268963154284) with content: "fgaW "
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629472893008 | Dumping config:
+1629472893014 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629472906193 | Reading posts sorted by "new" with a length of 10
+1629474001767 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629475097464 | Dumping config:
+1629475097470 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629475138252 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629475158832 | Dumping config:
+1629475158846 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629475224268 | Reading post 0
+1629475224908 | Reading comments from post "0", with length: undefined
+1629475226966 | Trying to vote on post: 0; and vote: +; iptkn: 8157706522672703; ip: 87.123.198.188;
+1629477544653 | Reading post 0
+1629477545200 | Reading comments from post "0", with length: undefined
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629478842932 | Dumping config:
+1629478842937 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629478844300 | Reading posts sorted by "new" with a length of 10
+1629478849346 | Reading post 0
+1629478849884 | Reading comments from post "0", with length: undefined
+1629478852676 | Reading post 1
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629479415775 | Dumping config:
+1629479415781 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629479438454 | Reading posts sorted by "new" with a length of 10
+1629479440140 | Reading posts sorted by "new" with a length of 10
+1629479441307 | Reading posts sorted by "new" with a length of 10
+1629479445001 | Reading posts sorted by "new" with a length of 10
+1629479446892 | Reading posts sorted by "new" with a length of 10
+1629479449146 | Reading posts sorted by "new" with a length of 10
+1629479451290 | Reading posts sorted by "new" with a length of 10
+1629479454618 | Reading post 1
+1629479456232 | Reading post 1
+1629479457937 | Reading posts sorted by "new" with a length of 10
+1629479459127 | Reading posts sorted by "new" with a length of 10
+1629479460135 | Reading posts sorted by "new" with a length of 10
+1629479461156 | Reading posts sorted by "new" with a length of 10
+1629479461988 | Reading posts sorted by "new" with a length of 10
+1629479462904 | Reading posts sorted by "new" with a length of 10
+1629479463718 | Reading posts sorted by "new" with a length of 10
+1629479464604 | Reading posts sorted by "new" with a length of 10
+1629479465375 | Reading posts sorted by "new" with a length of 10
+1629479466383 | Reading posts sorted by "new" with a length of 10
+1629479467214 | Reading posts sorted by "new" with a length of 10
+1629479467972 | Reading posts sorted by "new" with a length of 10
+1629479469168 | Reading posts sorted by "new" with a length of 10
+1629479470066 | Reading posts sorted by "new" with a length of 10
+1629479470802 | Reading posts sorted by "new" with a length of 10
+1629479471542 | Reading posts sorted by "new" with a length of 10
+1629479473068 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629554668615 | Dumping config:
+1629554668621 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629554672833 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629556175766 | Dumping config:
+1629556175772 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629556262727 | Reading posts sorted by "new" with a length of 10
+1629559886977 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629561256346 | Dumping config:
+1629561256352 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629561285920 | Reading posts sorted by "new" with a length of 10
+1629561375819 | Trying to set post "undefined", as name "testing for tagz"
+1629561375820 | Contents: {"author":"deinz mudda","content":"\thier könnte ihre werbung stehen","create":1629561375819,"desc":"hier nicht","id":-1,"rating":{"+":0,"-":0},"tags":["$$$","othertag"],"title":"testing for tagz"}
+1629561412303 | Reading posts sorted by "new" with a length of 10
+1629561433206 | Trying to set post "undefined", as name "testing for tagz"
+1629561433207 | Contents: {"author":"deinz mudda","content":"\thier könnte ihre werbung stehen","create":1629561433206,"desc":"hier nicht","id":-1,"rating":{"+":0,"-":0},"tags":["$$$","othertag"],"title":"testing for tagz"}
+1629561436203 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629562139411 | Dumping config:
+1629562139417 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629562148042 | Reading posts sorted by "new" with a length of 10
+1629562159432 | Trying to set post "undefined", as name "testing for tagz"
+1629562159432 | Contents: {"author":"deinz mudda","content":"\thier könnte ihre werbung stehen","create":1629562159432,"desc":"hier nicht","id":-1,"rating":{"+":0,"-":0},"tags":["$$$","othertag"],"title":"testing for tagz"}
+1629562186165 | Trying to set post "undefined", as name "testing for tagz1"
+1629562186166 | Contents: {"author":"deinz mudda","content":"\thier könnte ihre werbung stehen","create":1629562186156,"desc":"hier nicht","id":-1,"rating":{"+":0,"-":0},"tags":["$$$","othertag","othertag0"],"title":"testing for tagz1"}
+1629562190529 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629562432556 | Dumping config:
+1629562432562 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629564737518 | Reading posts sorted by "new" with a length of 10
+1629564753711 | Reading posts sorted by "new" with a length of 10
+1629565127882 | Reading posts sorted by "new" with a length of 10
+1629565280896 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629565491865 | Dumping config:
+1629565491871 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629565492440 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+1629565531401 | Dumping config:
+1629565531407 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629565533680 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+1629565550028 | Dumping config:
+1629565550034 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629565552397 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+1629565563542 | Dumping config:
+1629565563548 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629565565389 | searching stuff by tags "$$$" and sorting "undefined"
+1629565581774 | searching stuff by tags "othertag" and sorting "undefined"
+1629565586640 | searching stuff by tags "othertag $$$" and sorting "undefined"
+1629565845597 | Reading posts sorted by "new" with a length of 10
+1629565966893 | Reading posts sorted by "new" with a length of 10
+1629565992667 | Reading posts sorted by "new" with a length of 10
+1629566309698 | Reading posts sorted by "new" with a length of 10
+1629566460490 | searching stuff by tags "$$$" and sorting "undefined"
+1629582948025 | Reading posts sorted by "new" with a length of 10
+1629582965937 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629586094251 | Dumping config:
+1629586094256 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629586109664 | searching stuff by tags "$$$" and sorting "undefined"
+1629586140819 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+1629586146024 | Dumping config:
+1629586146030 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"search_only_tags":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629586146724 | searching stuff by tags "$$$" and sorting "undefined"
+1629586156977 | searching stuff by tags "$$$ testing" and sorting "undefined"
+1629586163565 | Reading posts sorted by "new" with a length of 10
+1629586168745 | searching stuff by tags "$$$ othertag" and sorting "undefined"
+1629586176587 | searching stuff by tags "$$$ othertag" and sorting "undefined"
+1629587294373 | Reading posts sorted by "new" with a length of 10
+1629587299456 | searching stuff by tags "$$$" and sorting "undefined"
+1629587316925 | Reading posts sorted by "new" with a length of 10
+1629587444038 | Reading post 1
+1629587444689 | Reading comments from post "1", with length: undefined
+1629587446984 | Trying to vote on post: 1; and vote: +; iptkn: 2096300560416030; ip: 82.207.236.116;
+1629587452705 | Reading posts sorted by "new" with a length of 10
+1629587456320 | Reading postindex
+1629587456859 | Reading posts sorted by "hot" with a length of 5
+1629587475660 | Reading post 2
+1629587476646 | Reading comments from post "2", with length: undefined
+1629587478649 | Trying to vote on post: 2; and vote: -; iptkn: 4752029791258578; ip: 82.207.236.116;

@@ -38,7 +38,7 @@ class entry {
         element.innerHTML +=
             `<div class="entry">
 <a class="title" href="/posts?post=${this.id}">${this.title}</a>
-<div class="author">BY <a class="author" href="/search?author=${this.author}">${this.author}</a></div>
+<div class="subtitle author">BY <a class="author" href="/search?author=${this.author}">${this.author}</a></div>
 <hr  class="seperator">
 <div class="preview">${this.desc}</div>
 <hr  class="seperator">

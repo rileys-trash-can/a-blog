@@ -190,6 +190,7 @@ const postsDB = new JSONdb("storage/posts.json", {
 })
 posts.init(postsDB)
 posts.rank()
+posts.index() // for search
 
 // post auto rank
 if ( conf.post_auto_rank > 0)
@@ -316,6 +317,42 @@ app.all("/comments", (req, res) => { // + rating
 		res.status ( 501 )
 		res.end(JSON.stringify({"type":"err","text":"not implemented!"}))
 	}
+})
+
+// search stuff:
+con.registercmd("search", (arg) => {
+	if ( !arg[0] || !arg[1] ) return console.log( "No search parameters specified!\nusage: \"search <sort> <param1> <param2>...\"" )
+	let sort = arg[0]
+	arg.shift()
+	console.log( posts.search( arg, sort ) )
+})
+app.get("/search", (req, res) => {
+	let tags = req.query.tag.split(" ")
+	let sort = req.query.sort ? req.query.sort : undefined
+
+	if ( req.query.api == undefined ) {
+		filestuff.readFSr(req, res, "html/search/index.html", "text/html", `""//<!--SEARCH-DATA-INJECT-->//`, JSON.stringify( posts.search( tags, sort, true ) ) )
+		return
+	}
+	log.log( `searching stuff by tags "${req.query.tag}" and sorting "${req.query.sort}"` )
+
+	// actual api
+	res.type("application/json")
+	if ( req.query.tag == undefined ) {
+		res.status( 400 )
+		res.end( JSON.stringify({"type":"err", "text":"No tag provided"}) )
+		return
+	}
+	console.log(req.query)
+
+	// check is post info is needed:
+	let p = req.query.pi != undefined
+	
+	// construct response
+	let r = {"type":"s","text":"success!"}
+	r.content = posts.search( tags, sort, p )
+
+	res.end( JSON.stringify( r ) )
 })
 
 // debug stuff:

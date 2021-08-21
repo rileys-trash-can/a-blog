@@ -33,5 +33,14 @@
         "body": "This is a test to test\nif the authorinfo works correctly!",
         "id": 3
     },
-    "0-len": 4
+    "0-len": 5,
+    "0-4": {
+        "time": 1629373943454,
+        "author": "94.134.179.144",
+        "authorinfo": {
+            "country": "DE",
+            "origin": "web"
+        },
+        "body": "fgaW "
+    }
 }
