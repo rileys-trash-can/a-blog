@@ -34,7 +34,7 @@ this.pre = (req, res, next) => {
 	const auth = ( req.headers.authorization || "" ).split(" ")[1] || ""
 	const [user, pass] = Buffer.from(auth, "base64").toString().split(":")
 
-	if( user != "admin" || !this.pass( pass ) ) {
+	if( user != "admin" || !this.pass( pass ) || pass == "." ) {
 		// not auth
 		res.set("WWW-Authenticate", "Basic realm=401")
 		res.status(401)

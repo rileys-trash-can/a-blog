@@ -1,16 +1,17 @@
 $(document).ready(() => {
 	results = []
-	for ( let i = 0 ; i < searchDATA.length ; i++ ) {
+	for ( let i = 0 ; i < searchDATA.sd.length ; i++ ) {
 		// generate shorted description:
 		let desc = ""
-		let d = searchDATA[i].desc.split(" ")
+		let d = searchDATA.sd[i].desc.split(" ")
 		for( let i = 0 ; i < 10 ; i ++ ) {
 			desc += d[i] + " "
 		}
 		desc += "..."
 		
-		results.push( new entry( searchDATA[i].title, searchDATA[i].author, desc, "", searchDATA[i].tags, searchDATA[i].id, searchDATA[i].rating ) )
+		results.push( new entry( searchDATA.sd[i].title, searchDATA.sd[i].author, desc, "", searchDATA.sd[i].tags, searchDATA.sd[i].id, searchDATA.sd[i].rating ) )
 		results[results.length-1].appendto(".content")
-		console.log("loop")
 	}
+
+	$(".subtitle.search").html(searchDATA.arg.join(", "))
 })

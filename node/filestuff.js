@@ -29,7 +29,7 @@ module.exports.readFSr = (req, res, file, type, search, replace) => {
 			res.end("not found!")
 		} else {
 			res.type(type ? type : file)
-			res.end(data.replace(search, replace))
+			res.end( data.split(search).join(replace) )
 		}
 	})
 }

@@ -196,6 +196,7 @@ posts.index() // for search
 if ( conf.post_auto_rank > 0)
 scheduler.schedule(() => {
 	posts.rank()
+	posts.index()
 	log.log("autolranking posts", log.d.basic)
 }, conf.post_ranking_auto)
 
@@ -331,7 +332,11 @@ app.get("/search", (req, res) => {
 	let sort = req.query.sort ? req.query.sort : undefined
 
 	if ( req.query.api == undefined ) {
-		filestuff.readFSr(req, res, "html/search/index.html", "text/html", `""//<!--SEARCH-DATA-INJECT-->//`, JSON.stringify( posts.search( tags, sort, true ) ) )
+		let r = {}
+		r.sd  = posts.search( tags, sort, true )
+		r.arg = tags
+
+		filestuff.readFSr(req, res, "html/search/index.html", "text/html", `""//<!--SEARCH-DATA-INJECT-->//`, JSON.stringify( r ) )
 		return
 	}
 	log.log( `searching stuff by tags "${req.query.tag}" and sorting "${req.query.sort}"` )
