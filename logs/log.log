@@ -1655,3 +1655,102 @@ err, crashed!"
 1629715792558 | Reading comments from post "2", with length: undefined
 1629715809795 | Reading post 2
 1629715810285 | Reading comments from post "2", with length: undefined
+--- SEPERATOR ---
+1629716194735 | Dumping config:
+1629716194741 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629719516642 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629719529909 | Dumping config:
+1629719529915 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629719532203 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629719694625 | Dumping config:
+1629719694630 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629719737266 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629719999994 | Dumping config:
+1629720000000 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629720057137 | Trying to set post "undefined", as name "me try 2 other creator"
+1629720057138 | Contents: {"author":"Author","content":"# Your post (NO HEADLINE HERE)","create":1629720057137,"desc":"This is a post about *","id":-1,"rating":{"+":0,"-":0},"tags":["tag1","othertag1","$$$$"],"title":"me try 2 other creator"}
+1629720067537 | Trying to set post "undefined", as name "me try 2 other creator"
+--- SEPERATOR ---
+1629720154609 | Dumping config:
+1629720154615 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629720164614 | Reading posts sorted by "new" with a length of 10
+1629720217216 | Reading posts sorted by "new" with a length of 10
+1629720339874 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629720429702 | Dumping config:
+1629720429708 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629720431298 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629720500917 | Dumping config:
+1629720500922 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629720502303 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629721158710 | Dumping config:
+1629721158716 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629721251036 | Reading posts sorted by "new" with a length of 10
+1629721254624 | Reading posts sorted by "new" with a length of 10
+1629721910423 | Reading posts sorted by "new" with a length of 10
+1629724829613 | Reading posts sorted by "new" with a length of 10
+1629727628418 | Trying to set post "undefined", as name "0das hier ist einz title"
+1629727628419 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727628418,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"0das hier ist einz title"}
+1629727632131 | Trying to set post "preview", as name "1das hier ist einz title"
+1629727632132 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727632131,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"1das hier ist einz title"}
+1629727635585 | Trying to set post "preview", as name "1das hier ist einz title"
+1629727635587 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727635585,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"1das hier ist einz title"}
+1629727638519 | Trying to set post "preview", as name "2das hier ist einz title"
+1629727638520 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727638519,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"2das hier ist einz title"}
+1629727642467 | Trying to set post "undefined", as name "2das hier ist einz title"
+1629727642468 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727642467,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"2das hier ist einz title"}
+1629727647823 | Trying to set post "undefined", as name "3das hier ist einz title"
+1629727647825 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727647823,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"3das hier ist einz title"}
+1629727650534 | Trying to set post "preview", as name "4das hier ist einz title"
+1629727650536 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727650534,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"4das hier ist einz title"}
+1629727652358 | Trying to set post "undefined", as name "4das hier ist einz title"
+1629727652360 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727652358,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"4das hier ist einz title"}
+1629727676048 | Trying to set post "undefined", as name "5das hier ist einz title"
+1629727676049 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727676048,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"5das hier ist einz title"}
+1629727681549 | Trying to set post "undefined", as name "6das hier ist einz title"
+1629727681550 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727681549,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"6das hier ist einz title"}
+1629727686171 | Trying to set post "undefined", as name "7das hier ist einz title"
+1629727686172 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727686171,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"7das hier ist einz title"}
+1629727689858 | Trying to set post "preview", as name "8das hier ist einz title"
+1629727689859 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727689858,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"8das hier ist einz title"}
+1629727692876 | Trying to set post "undefined", as name "8das hier ist einz title"
+1629727692877 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727692876,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"8das hier ist einz title"}
+1629727698662 | Trying to set post "undefined", as name "9das hier ist einz title"
+1629727698663 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727698662,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"9das hier ist einz title"}
+1629727706950 | Trying to set post "undefined", as name "10das hier ist einz title"
+1629727706951 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727706950,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"10das hier ist einz title"}
+1629727717296 | Trying to set post "undefined", as name "11das hier ist einz title"
+1629727717297 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727717296,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"11das hier ist einz title"}
+1629727721726 | Trying to set post "undefined", as name "12das hier ist einz title"
+1629727721727 | Contents: {"author":"author","content":"# Your post (NO HEADLINE HERE)\nyou post ","create":1629727721726,"desc":"desc","id":-1,"rating":{"+":0,"-":0},"tags":["tag0","othertag","$$$"],"title":"12das hier ist einz title"}
+1629727812617 | Reading posts sorted by "new" with a length of 10
+1629727825196 | Reading posts sorted by "new" with a length of 10
+1629727925705 | Reading posts sorted by "new" with a length of 10
+1629728008009 | Reading posts sorted by "new" with a length of 10
+1629728104861 | searching stuff by tags "$$$" and sorting "undefined"
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+--- SEPERATOR ---
+1629731380955 | Dumping config:
+1629731380961 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":false,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629731615844 | Reading posts sorted by "new" with a length of 10
+1629731622684 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+1629733161895 | Dumping config:
+1629733161901 | {"debug":false,"logging":1337,"logfile":"logs/log.log","ipget_endpoint_set":"//derzombiiie.com/getip.php?settoken=${TOKEN}","ipget_endpoint_get":"//derzombiiie.com/getip.php?token=${TOKEN}","cl":true,"site_name":"blog.derzombiiie.com","search_enable":true,"commenting_enabled":true,"post_ranking_auto":43200,"index_post_sort":"new","comment_sync_on_write":false,"comment_auto_sync":360}
+1629733172114 | Reading posts sorted by "new" with a length of 10
+1629733207204 | Reading posts sorted by "new" with a length of 10
+1629734004107 | Reading posts sorted by "new" with a length of 10
+--- SEPERATOR ---
+--- SEPERATOR ---

@@ -33,7 +33,7 @@ function post() {
 
 	if( prompt( "To proceed posting please type: " + check ) != check ) {
 		alert( "wrong!" )
-		return
+		//return
 	}
 
 	// push post

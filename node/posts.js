@@ -110,7 +110,7 @@ this.push = (post) => {
 	
 	let len = this.db.get("len")
 	this.db.set(len, {
-		"autor": post.author,
+		"author": post.author,
 		"content": post.content,
 		"create": post.create,
 		"desc": post.desc,
@@ -153,7 +153,6 @@ this.rate = ( post, rating, ip ) => {
 	let ipi = this.ipcheck( post, ip )
 	let p = this.db.get( post )
 
-	console.log(`ip: ${ip}; ipi:${JSON.stringify(ipi)}`)
 	if ( ip ) {
 		if ( ipi == "+" ) {
 			p.rating["+"]--
@@ -170,39 +169,45 @@ this.rate = ( post, rating, ip ) => {
 	return {"type":"s", "text":"success!", "content": p.rating}
 }
 
-// does the indexing for search by tags
+// does the indexing for search by tags / author
 this.index = () => {
 	let len = this.len
 	this.tags = []
+	this.author = []
 
 	for ( let i = 0 ;  i < len ; i++ ) {
 		this.tags[i] = this.db.get( i ).tags.sort()
+	}
+	for ( let i = 0 ;  i < len ; i++ ) {
+		this.author[i] = this.db.get( i ).author
 	}
 
 	
 }
 
-this.search = ( tags, sort, pinfo ) => {
+this.search = ( tags, author, sort, pinfo ) => {
 	// search goes through all articles and counts the amount of matching tags; then it uses sort to sort stuff though the this.ranking[sort]
-	let len = this.len
-	let rnk = []
+	let len = this.len 
+	let rnk = [] // rank based on tags
 
-	console.log( len )
 	// rnk[postID] = amount of matching tags
 	for ( let l = 0 ; l < len ; l++ ) {
-		for ( let i = 0 ; i < tags.length ; i++ ) {
-			if ( this.tags[l].includes( tags[i] ) ) {
-			console.log(rnk)
-				if ( !rnk[l] ) {
-					rnk[l] = 0
+		if ( ( author.includes( this.author[l] ) || author.length == 0 || author == false ) && tags.length > 0 ) {		
+			for ( let i = 0 ; i < tags.length ; i++ ) {
+				if ( this.tags[l].includes( tags[i] ) ) {
+					if ( !rnk[l] ) {
+						rnk[l] = 0
+					}
+					rnk[l]++
 				}
-				rnk[l]++
 			}
 		}
+		if ( author.includes( this.author[l] ) && ( tags.length == 0 || this.tags == false ) ) {
+			rnk[l] = 1
+		}
+
 	}
 
-	console.log(rnk)
-	
 	let rem = true
 	let sorted = []
 	let pos = -1;

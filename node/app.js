@@ -164,6 +164,13 @@ con.registercmd( "post", (arg => {
 			console.log("DONE!")
 			break
 
+		case "index":
+			console.log("indexing...")
+			t = posts.index()
+			if (t) console.log(t)
+			console.log("DONE!")
+			break
+
 		default:
 			console.log("Sub-command not found or not supplied!")
 				
@@ -171,7 +178,7 @@ con.registercmd( "post", (arg => {
 		case "?":
 		case "h":
 		case "help":
-			console.log("Availible cmds: get, ranking, rank, sync")
+			console.log("Availible cmds: get, ranking, rank, sync, index")
 			break
 	}
 }))
@@ -324,6 +331,7 @@ app.all("/comments", (req, res) => { // + rating
 })
 
 // search stuff:
+if ( conf.search_enable ) {
 con.registercmd("search", (arg) => {
 	if ( !arg[0] || !arg[1] ) return console.log( "No search parameters specified!\nusage: \"search <sort> <param1> <param2>...\"" )
 	let sort = arg[0]
@@ -331,12 +339,23 @@ con.registercmd("search", (arg) => {
 	console.log( posts.search( arg, sort ) )
 })
 app.get("/search", (req, res) => {
-	let tags = req.query.tag.split(" ")
+	let tags = req.query.tag ? req.query.tag.split(" ") : []
+	let author = req.query.author ? req.query.author.split(" ") : []
 	let sort = req.query.sort ? req.query.sort : undefined
+
+	if ( tags.length == 0 && author.length == 0 ) {
+		res.status( 400 )
+		if ( req.query.api != undefined ) {
+			res.type("application/json")
+			res.end( JSON.stringify( {"type":"err","text":"NO SEARCH PARAMS"} ) )
+		} else {
+			res.end("No search params")
+		}
+	}
 
 	if ( req.query.api == undefined ) {
 		let r = {}
-		r.sd  = posts.search( tags, sort, true )
+		r.sd  = posts.search( tags, author, sort, true )
 		r.arg = tags
 
 		filestuff.readFSr(req, res, "html/search/index.html", "text/html", `""//<!--SEARCH-DATA-INJECT-->//`, JSON.stringify( r ) )
@@ -346,22 +365,19 @@ app.get("/search", (req, res) => {
 
 	// actual api
 	res.type("application/json")
-	if ( req.query.tag == undefined ) {
-		res.status( 400 )
-		res.end( JSON.stringify({"type":"err", "text":"No tag provided"}) )
-		return
-	}
-	console.log(req.query)
 
 	// check is post info is needed:
 	let p = req.query.pi != undefined
 	
 	// construct response
 	let r = {"type":"s","text":"success!"}
-	r.content = posts.search( tags, sort, p )
+	r.content = posts.search( tags, author, sort, p )
 
 	res.end( JSON.stringify( r ) )
 })
+} else {
+app.get("/search", (req, res) => filestuff.readFS(req,res,"html/search/disabled.html","text/html"))
+}
 
 // debug stuff:
 if( conf.debug )
@@ -392,6 +408,6 @@ app.get("/admin", (req, res) => filestuff.readFS(req, res, "html/admin/index.htm
 app.post("/admin/post", (req, res) => admin.post(req, res))
 
 app.listen(port, () => {
-	console.log(`Server listening on http://localhost:${port}`)
+	console.log(`Server listening on http://0.0.0.0:${port}`)
 	if(conf.cl)	con.init()
 })

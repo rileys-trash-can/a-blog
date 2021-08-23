@@ -24,7 +24,7 @@ module.exports.eval = ( cmd ) => {
 
 	if (! comm ) return // if cmd empty dont do anything
 
-	if ( comm = "FE!") {
+	if ( comm === "FE!") {
 		process.exit(1) // FORCE EXIT "crash" programm
 	}
 

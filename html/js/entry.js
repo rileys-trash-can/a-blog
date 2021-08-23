@@ -31,7 +31,11 @@ class entry {
 		// create taglist
 		let tags = ""
 		for ( let i = 0 ; i < this.tags.length ; i++ ) {
-			tags += `<span class="tag"><a href="/search?tag=${this.tags[i]}">${this.tags[i]}</a></span>`
+			let encoded = this.tags[i].replace(/[\u00A0-\u9999<>\&]/g, function(i) {
+			   return '&#'+i.charCodeAt(0)+';';
+			});
+
+			tags += `<span class="tag tag-content-${encoded}"><a href="/search?tag=${this.tags[i]}">${this.tags[i]}</a></span>`
 		}
     
         let element = document.createElement("DIV");

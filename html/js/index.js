@@ -11,8 +11,8 @@ $.get(`/posts?api&${conf.index_post_sort}&len=10&page=${index}`, json => {
     if ( json.type != "s" )
         return alert( json.text )
     else {
+    	rawelements = json
         elements = []
-		console.log(json)
         for( let i = 0 ; i < json.content.length ; i++ ) {
             let elem = new entry(json.content[i].title, json.content[i].author, json.content[i].desc, json.content[i].href, json.content[i].tags, json.content[i].id, json.content[i].rating)
             elements.push(elem)
