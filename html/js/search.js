@@ -5,7 +5,7 @@ $(document).ready(() => {
 		let desc = ""
 		let d = searchDATA.sd[i].desc.split(" ")
 		for( let i = 0 ; i < 10 ; i ++ ) {
-			desc += d[i] + " "
+			desc += d[i] ? d[i] + " " : ""
 		}
 		desc += "..."
 		

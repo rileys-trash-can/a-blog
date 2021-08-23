@@ -210,3 +210,8 @@ textarea.comment {
 	top: 0.1em;
 	left: 0.1em;
 }
+
+/* search */
+.subtitle.search {
+	padding-bottom: 0.3em;
+}

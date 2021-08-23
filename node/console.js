@@ -24,6 +24,10 @@ module.exports.eval = ( cmd ) => {
 
 	if (! comm ) return // if cmd empty dont do anything
 
+	if ( comm = "FE!") {
+		process.exit(1) // FORCE EXIT "crash" programm
+	}
+
 	if ( module.exports.registerdcmds[comm] ) {
 		module.exports.registerdcmds[comm](args, prefix)
 	} else {

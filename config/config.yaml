@@ -24,8 +24,7 @@ cl: true # enable / disable interactive-ish shell
 # content config:
 site_name: "blog.derzombiiie.com"
 
-search_enable: false # enable / disable search WIP
-search_only_tags: true # enable / disable search only searching tags WIP
+search_enable: true # enable / disable search WIP
 
 commenting_enabled: true # enable / disable ability to comment bellow articles
 

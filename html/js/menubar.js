@@ -17,8 +17,8 @@ class menubar {
                 
                 case "input":
                     html += `<div class="input">\n`
-                    html += `   <input type="${ p[i].type ? p[i].type : "text" }" id="${ p[i].id }">\n`
-                    html += `   <img src="${ p[i].icon }" title="${ p[i].alt }" alt="${ p[i].alt }">\n`
+                    html += `   <input type="${ p[i].type ? p[i].type : "text" }" id="${ p[i].id.replace('{$t}', "input") }">\n`
+                    html += `   <img src="${ p[i].icon }" title="${ p[i].alt }" alt="${ p[i].alt }" id="${ p[i].id.replace('{$t}', "button") }">\n`
                     html += `</div>`
                     break
 
@@ -39,7 +39,14 @@ $(document).ready(() => {
 	e.push({"type":"href", "text":conf.site_name,   "href":"/"})
 	e.push({"type":"href", "text":"posts",          "href":"/posts"})
 	e.push({"type":"href", "text":"newest",         "href":"/posts?sort=new"})
-	if(conf.search_enable) e.push({"type":"input","id"  :"search-field",   "icon":"/static/icon/search.svg" ,"alt":"search"})
+	if(conf.search_enable) e.push({"type":"input","id"  :"search-{$t}",   "icon":"/static/icon/search.svg" ,"alt":"search"})
 	    
     a = new menubar( ".menubox", e)
+
+    // search stuff:
+    $("#search-button").on("click", () => {
+    	let search = $("#search-input").val()
+
+    	location = "/search?tag=" + search.toLowerCase()
+    })
 })
