@@ -379,20 +379,6 @@ app.get("/search", (req, res) => {
 app.get("/search", (req, res) => filestuff.readFS(req,res,"html/search/disabled.html","text/html"))
 }
 
-// debug stuff:
-if( conf.debug )
-app.get("/debug/:action", (req, res) => {
-	switch ( req.params.action ) {
-		case "ip":
-			res.end(req.ip)
-			break
-
-		case "ips":
-			res.end(JSON.stringify( req.ips ))
-			break
-	}
-})
-
 // admin stuff:
 admin.init(comments, posts, log)
 con.registercmd( "passwd", (arg) => {

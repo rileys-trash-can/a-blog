@@ -8,21 +8,20 @@
 # especially not non strings into boolean entrys 
 # (strings are the things with "quotes" and booleans are true / false)
 
-debug: false # enable / disable debug mode
-logging: 1337 # WIP - adjust logging levels
+logging: 1337 # adjust logging levels
 #   -1 - none
 #    0 - basic (Logs new comments)
 #   10 - datahorder (Logs everything (all requests with ip + timestamp))
 # 1337 - haxxer (JUST FOR DEBUGGING (and cool looks)) (takes everything from datahorder and just prints it out)
 logfile: "logs/log.log" # logfile
 
-ipget_endpoint_set: "//derzombiiie.com/getip.php?settoken=${TOKEN}" # endpoint for setting token to ip ${TOKEN} beeing replaced with random char string which is send to server as "ip"
-ipget_endpoint_get: "//derzombiiie.com/getip.php?token=${TOKEN}"    # ${TOKEN} beeing replaced with token from client
+ipget_endpoint_set: "//ipget.com?setto=${TOKEN}" # endpoint for setting token to ip ${TOKEN} beeing replaced with random char string which is send to server as "ip"
+ipget_endpoint_get: "//ipget.com?get=${TOKEN}"    # ${TOKEN} beeing replaced with token from client
 cl: true # enable / disable interactive-ish shell
 # GET with "settoken" // (random by client) saves ip with that token
 
 # content config:
-site_name: "blog.derzombiiie.com"
+site_name: "a-blog"
 
 search_enable: true # enable / disable search
 
@@ -31,7 +30,7 @@ commenting_enabled: true # enable / disable ability to comment bellow articles
 # post ranking config:
 post_ranking_auto: 43200 # time in seconds, posts are autoranked | -1 for not at all (default is 12h aka. 43200)
 index_post_sort: "new" # sorting used for index page
-# new | hot (WIP are: manual, rit (like reddits "hot"))
+# new | hot (planned are: manual, rit (like reddits "hot"))
 
 # file access config:
 comment_sync_on_write: false # sync comments everytime a comment gets edited / created / deleted
