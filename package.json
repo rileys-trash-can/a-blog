@@ -4,11 +4,12 @@
   "description": "derzombiiie.com blog",
   "main": "node/app.js",
   "scripts": {
-    "test": "npm node/app.js"
+    "test": "node node/app",
+    "inspect": "node --inspect=0.0.0.0:1234 node/app"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Eds-trash-can/derzombiiie.com.git"
+    "url": "git+https://github.com/Eds-trash-can/a-blog.git"
   },
   "keywords": [
     "web",
@@ -18,9 +19,9 @@
   "author": "DerZombiiie",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Eds-trash-can/derzombiiie.com/issues"
+    "url": "https://github.com/Eds-trash-can/a-blog/issues"
   },
-  "homepage": "https://github.com/Eds-trash-can/derzombiiie.com#readme",
+  "homepage": "https://github.com/Eds-trash-can/a-blog",
   "dependencies": {
     "express": "^4.17.1",
     "geoip-ultralight": "^0.1.5",
