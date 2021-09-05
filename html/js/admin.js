@@ -69,7 +69,7 @@ function save() {
 	}		
 
 	// dl it locally ( as .json )
-	$(".dl").attr("href", "data:application/json;base64," + btoa( JSON.stringify(postjson) ))
+	$(".dl").attr("href", "data:text/plain;charset=utf-8," + encodeURIComponent( JSON.stringify(postjson) ))
 	document.getElementsByClassName("dl")[0].click()
 	
 }

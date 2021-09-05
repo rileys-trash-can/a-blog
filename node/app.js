@@ -348,8 +348,10 @@ app.get("/search", (req, res) => {
 		if ( req.query.api != undefined ) {
 			res.type("application/json")
 			res.end( JSON.stringify( {"type":"err","text":"NO SEARCH PARAMS"} ) )
+			return
 		} else {
 			res.end("No search params")
+			return
 		}
 	}
 
@@ -393,7 +395,7 @@ app.use("/admin/", (req, res, next) => admin.pre(req, res, next))
 app.get("/admin", (req, res) => filestuff.readFS(req, res, "html/admin/index.html", "text/html"))
 app.post("/admin/post", (req, res) => admin.post(req, res))
 
-app.listen(port, () => {
-	console.log(`Server listening on http://0.0.0.0:${port}`)
+app.listen(conf.listening_port, conf.listening_addr, () => {
+	console.log(`Server listening on http://${conf.listening_addr}:${conf.listening_port}`)
 	if(conf.cl)	con.init()
 })

@@ -1,5 +1,8 @@
 # Mico logs:
 log.txt
 
-# Mby someday the WS-access logs
-# Mby storage
+node_modules/
+config/*
+!config/config.example.yaml
+storage/*
+html/data/*

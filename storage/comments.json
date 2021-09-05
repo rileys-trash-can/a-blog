@@ -1,2 +1,12 @@
 {
+    "0-len": 1,
+    "0-0": {
+        "time": 1629909525274,
+        "author": "derz",
+        "authorinfo": {
+            "origin": "console"
+        },
+        "body": "This is a testing comment just to show how this would look, if youl'd comment. The \"author\" / headline field would be your ip + corosponding location.",
+        "id": 0
+    }
 }

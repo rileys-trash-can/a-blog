@@ -119,7 +119,10 @@ this.push = (post) => {
 		"tags": post.tags,
 		"title":post.title		
 	})
+	// update len
 	this.db.set("len", len+1)
+	this.len++
+	
 	this.index()
 	return {"type":"s","text":"Success! postid: " + len,"content":len}
 }
