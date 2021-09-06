@@ -60,6 +60,9 @@ function post() {
 function save() {
 	let tags = $(".editor.tags").val().split(/[\,\ ]/).filter(i=> i!="" )
 
+	let filename = prompt("Please enter a file name:")
+		filename = filename ? filename : "post.export" 
+
 	let postjson = {
 		"title": $(".editor.title").val(),
 		"body": mde.value(),
@@ -69,7 +72,8 @@ function save() {
 	}		
 
 	// dl it locally ( as .json )
-	$(".dl").attr("href", "data:text/plain;charset=utf-8," + encodeURIComponent( JSON.stringify(postjson) ))
+	$(".dl").attr("download", filename+".json")
+	$(".dl").attr("href", "data:application/json;charset=utf-8," + encodeURIComponent( JSON.stringify(postjson) ))
 	document.getElementsByClassName("dl")[0].click()
 	
 }
