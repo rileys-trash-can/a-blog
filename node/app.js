@@ -50,6 +50,7 @@ con.registercmd( "appeval", (arg) => {try {console.log(eval(arg.join(" ")))} cat
 con.registercmd( "comment", (arg => {
 	let t
 	let body
+	let time
 	sw:
 	switch (arg[0]) {
 		case "get":
@@ -76,7 +77,7 @@ con.registercmd( "comment", (arg => {
 			body.shift()
 			body.shift()
 
-			let time = arg[2]
+			time = arg[2]
 			if (arg[2] == "auto") {
 				time = new Date().getTime()
 				console.log( "Auto-time: using time: " + time)
@@ -95,15 +96,31 @@ con.registercmd( "comment", (arg => {
 			console.log(comments.delete( arg[1], arg[2] ))
 			break
 
-		case "set": // DONT USE! its broken
-			if ( !arg[1] ) return console.log("No post ID specified!")
-			if ( !arg[2] ) return console.log("No comment specified!")
+		case "set": // DONT USE! its partially rewritten!
+			if (!arg[1] || !arg[2] || !arg[3] || !arg[4] || !arg[5])  {
+				return console.log("Not all args specified!\nUsage: comment set <post> <comment> <time> <author> <content>...")
+			}
+			let oldpost = commentDB.get(arg[1]+"-"+arg[2])
 
-			body = Object.assign([], arg[3])
+			body = Object.assign([], arg)
 			body.shift()
 			body.shift()
+			body.shift()
+			body.shift()
+			body.shift()
 
-			console.log( comments.set( arg[1], arg[2], { "body":body.join(" ") } ) )		
+			time = arg[3]
+			if (arg[3] == "auto") {
+				time = new Date().getTime()
+				console.log( "Auto-time: using time: " + time)
+			}
+
+			console.log( comments.set(arg[1], arg[2], {
+				"time":  time ==   "keep" ? oldpost.time   : time,
+				"author":arg[4] == "keep" ? oldpost.author : arg[4].replace(/%20/g, " "),
+				"authorinfo":{"origin":"console"},
+				"body":  body == "keep"   ? oldpost.body   : body.join(" ").replace(/\\n/g, "\n")
+			}) )
 			break
 
 		case "sync":

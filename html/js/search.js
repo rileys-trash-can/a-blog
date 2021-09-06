@@ -10,10 +10,11 @@ $(document).ready(() => {
 			a = d[i] ? a : ""
 		}
 		desc += a
-		
+
 		results.push( new entry( searchDATA.sd[i].title, searchDATA.sd[i].author, desc, "", searchDATA.sd[i].tags, searchDATA.sd[i].id, searchDATA.sd[i].rating ) )
 		results[results.length-1].appendto(".content")
 	}
 
-	$(".subtitle.search").html(searchDATA.arg.join(", "))
+	$(".subtitle.search").html((searchDATA.arg.join(", ").replace(/</g, "&lt;")))
+	$("title").html(("search - " + searchDATA.arg.join(", ")).replace(/</g, "&lt;"))
 })
