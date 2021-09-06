@@ -18,10 +18,17 @@ cd a-blog
 
 3. configurate
 ```bash
+cp config/config.example.yaml config/config.yaml
 nano config/config.yaml
 ```
 
-4. start up
+4. create storge files
+```bash
+touch storage/posts.json
+touch storage/comments.json
+```
+
+5. start up
 ```bash
 node node/app
 ```
