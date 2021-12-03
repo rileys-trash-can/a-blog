@@ -29,7 +29,7 @@ themes = new class {
 		this.theme = getCookie("theme")
 
 		if( !this.theme ) {
-			this.theme = "light"
+			this.theme = "dark"
 		}
 
 		this.loadstyle(this.theme)
