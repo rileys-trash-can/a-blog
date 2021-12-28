@@ -54,5 +54,5 @@ this.registerdcmds["exit"] = () => {
 	process.exit(1)
 }
 this.registerdcmds["clear"] = () => {
-	console.log('\033[2J')
+	console.clear()
 }
