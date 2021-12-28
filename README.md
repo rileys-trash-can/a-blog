@@ -8,7 +8,7 @@ a nodejs express jsonDB blog
 
 1. clone this repo
 ```bash
-git clone github.com/Eds-trash-can/a-blog.git
+git clone https://github.com/Eds-trash-can/a-blog.git
 ```
 
 2. go into dir
@@ -16,13 +16,13 @@ git clone github.com/Eds-trash-can/a-blog.git
 cd a-blog
 ```
 
-3. configurate
+3. configure
 ```bash
 cp config/config.example.yaml config/config.yaml
 nano config/config.yaml
 ```
 
-4. create storge files
+4. create storage files
 ```bash
 touch storage/posts.json
 touch storage/comments.json
