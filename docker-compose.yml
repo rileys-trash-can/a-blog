@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+ node:
+   build: .
+   ports:
+     - "80:8080"
+   environment:
+     - KEY=VALUE
+   links:
+     - database
+   depends_on:
+     - database
+ mongo:
+   image: mongo:latest
+   ports:
+     - "27017:27017"
+   volumes:
+     - ./mongo:/data/db

@@ -6,3 +6,5 @@ config/*
 !config/config.example.yaml
 storage/*
 html/data/*
+
+mongo/

@@ -11,6 +11,3 @@ try {
 }
 
 module.exports = data
-module.exports.sync = () => {
-	
-} 
