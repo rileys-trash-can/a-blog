@@ -1,10 +1,11 @@
 # Mico logs:
 log.txt
 
+# nodejs
 node_modules/
 config/*
-!config/config.example.yaml
-storage/*
-html/data/*
+!conig/example.yml
 
+
+# mongodb
 mongo/
