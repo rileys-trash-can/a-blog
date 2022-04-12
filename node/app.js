@@ -1,7 +1,6 @@
 const fs        = require("fs").promises
 const express   = require("express")
 const ejs       = require("ejs")
-const config    = require("./config")
 const { Post, examplePost } = require("./posts")
 const {getIp} = require("./utils")
 const con       = require("rl-console")
