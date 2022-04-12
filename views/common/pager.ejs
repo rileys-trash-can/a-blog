@@ -1,0 +1,27 @@
+<div class="pager">
+	<span class="pager entry"><a href="?page=0">&lt;&lt;</a></span>
+
+	<% if( page != 0 ) { %>
+		<span class="pager entry"><a href="?page=<%= page-1 %>">&lt;</a></span>
+	<% } %>
+
+	<% for(let i = 2 ; i > 0 ; i-- ) {%>
+		<% if( page - i > -1 ) { %>
+			<span class="pager entry"><a href="?page=<%= page - i %>"><%= page - i %></a></span>
+		<% } %>
+	<% } %>
+
+	<span class="pager entry selected"><a href="?page=<%= page %>"><%= page %></a></span>
+
+	<% for(let i = 1 ; i < 3 ; i++ ) {%>
+		<% if( page + i < pageCount ) { %>
+			<span class="pager entry"><a href="?page=<%= page + i %>"><%= page + i %></a></span>
+		<% } %>
+	<% } %>
+
+	<% if( page != pageCount - 1 ) { %>
+		<span class="pager entry"><a href="?page=<%= page+1 %>">&gt;</a></span>
+	<% } %>
+
+	<span class="pager entry"><a href="?page=<%= pageCount - 1 %>">&gt;&gt;</a></span>
+</div>

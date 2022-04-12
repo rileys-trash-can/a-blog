@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("common/head.ejs", {title: "home"}) %>
+</head>
+
+<body>
+    <div class="menubox">
+		<%- include("common/menubox"); %>
+    </div>
+
+    <div class="content">
+		<% if( notice ) { %>
+		<%- include("common/notice.ejs", notice) %>
+		<% } %>
+    	<%- include("common/share.ejs", {url: url, message: false}) %>
+		<%- include("common/post.ejs", {post: post, voting: voting}) %>
+		<%- include("common/commenting.ejs", {token: ctoken, post: post.id}) %>
+		<%- include("common/commentlist.ejs", {comments: post.comments, cl: 7}) %>
+    </div>
+
+    <div class="footer">
+		<%- include("common/footer"); %>
+    </div>
+</body>
+
+</html>
+

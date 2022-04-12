@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("common/head.ejs", {title: title}) %>
+</head>
+
+<body>
+    <div class="menubox">
+		<%- include("common/menubox"); %>
+    </div>
+
+    <div class="content">
+    	<%- include("common/share.ejs", {url: url, message: false}) %>
+		<div class="entrybox">
+			<div class="entry">
+				<h1 class="title"><% if( sort ) { %>filters & sorting<% } else if( tags ) { %>tags:<% } %></h1>
+				<hr class="seperator">
+				<% if( sort ) { %>
+				<div class="preview form">
+					<form method="GET" action="?" id="search">
+						<select id="sort" name="sort" form="search">
+							<% for(let sorter in sorters) {%>
+								<option value="<%= sorter %>" title="<%= sorters[sorter].desc %>" <%- sort.tName === sorter ? "selected" : "" %>><%= sorters[sorter].name %></option>
+							<% } %>
+						</select>
+						<input type="submit" value="Filter!">
+					</form>
+				</div> 
+				<% } %>
+				<% if( tags ) { %>
+					<div class="brow">
+						<span class="field left"><% for ( let i = 0 ; i < tags.length ; i ++) {%>
+							<span class="entry"><a href="/search?tag=<% tags[i] %>"><%= tags[i] %></a></span>
+						<% } %></span>
+					</div>
+				<% } %>
+			</div>
+		</div>
+		<%- include("common/list.ejs", {posts: posts}) %>
+		<%- include("common/pager.ejs", pager) %>
+    </div>
+
+    <div class="footer">
+		<%- include("common/footer"); %>
+    </div>
+</body>
+
+</html>

@@ -2,13 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <link rel="stylesheet" href="/static/style/dark.css">
-    <link rel="stylesheet" href="/static/style/fonts.css">
-    <link rel="stylesheet" href="/static/style/main.css">
+    <%- include("common/head.ejs", {title: "home"}) %>
 </head>
 
 <body>
@@ -17,6 +11,9 @@
     </div>
 
     <div class="content">
+    	<%- include("common/share.ejs", {url: url, "message": false}) %>
+		<%- include("common/list.ejs", {posts: posts}) %>
+		<%- include("common/seemore.ejs", {html: "<a href=\"/posts\">- show all -</a>"}) %>
     </div>
 
     <div class="footer">

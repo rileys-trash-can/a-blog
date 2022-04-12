@@ -1,0 +1,12 @@
+<div class="entrybox">
+	<div class="entry">
+		<h1 class="title">comment</h1>
+		<hr  class="seperator">
+		<form class="comment" action="/posts/<%= post %>/comment" method="POST">
+			<textarea name="comment" class="comment"></textarea>
+			<input type="hidden" name="token" value="<%= ctoken %>">
+			<input type="text" placeholder="name (optional)" name="name">
+			<input type="submit" value="Submit!" class="submit">
+		</form>
+	</div>
+</div>

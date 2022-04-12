@@ -44,6 +44,9 @@
     font-family: slkscr;
     color: black;
 }
+.entrybox > .entry > .title > * {
+    font-family: slkscr;
+}
 .entrybox > .entry > .title:hover {
     text-decoration: underline;
 }
@@ -127,17 +130,35 @@
 .entrybox > .entry > .brow > .rating > span > a {
 	font-family: slkscr;
 }
-.entrybox > .entry > .brow > .rating > span.plus {
+.entrybox > .entry > .brow > .rating > span.upvote {
 	border-color: green;
 }
-.entrybox > .entry > .brow > .rating > span.minus {
+.entrybox > .entry > .brow > .rating > span.downvote {
 	border-color: red;
 }
-.entrybox > .entry > .brow > .rating > span.plus:hover {
+.entrybox > .entry > .brow > .rating.clickable > span.upvote:hover {
 	background-color: #007F0033;
 }
-.entrybox > .entry > .brow > .rating > span.minus:hover {
-	background-color: #7F000033
+.entrybox > .entry > .brow > .rating.clickable > span.downvote:hover {
+	background-color: #7F000033;
+}
+
+.entrybox > .entry > .brow > .rating > span.upvote.clicked {
+	background-color: #007F0066;
+}
+.entrybox > .entry > .brow > .rating > span.downvote.clicked {
+	background-color: #7F000099;
+}
+
+/* notice */
+.entrybox > .entry.notice.error {
+	border-color: red;
+}
+.entrybox > .entry.notice.error > .seperator {
+	border-color: red;
+}
+.entrybox > .entry.notice.error:hover {
+	background-color: #7F000033;
 }
 
 /* pager */

@@ -1,0 +1,41 @@
+<div class="entrybox">
+	<div class="entry metaentry">
+		<div class="title">comments:</div>
+		<hr class="seperator">
+		<div class="preview comments">
+			These comments are user generated! they are <strong>NOT</strong> (actively) moderated! To report one please click <a href="/static/reporting.html" style="color:blue">here</a>!
+
+			<div class="comments">
+				<% for( let i = comments.list.length-1 ; i > comments.list.length-cl-1 && i >= 0 ; i-- ) {%>
+					<div class="comment">
+						<div class="authorbox">
+							<span class="author"><%= comments.list[i].author %></span>
+			    		    <span class="timestamp">wrote at <%= new Date(comments.list[i].create) %></span>
+						</div>
+						<hr class="speperator">
+						<div class="body"><%- comments.list[i].content?.replaceAll("<", "&lt;")?.replaceAll("\n", "<br>") %></div>
+					</div>
+				<% } %>
+			</div>
+
+			<input type="checkbox" class="hidden sqish" id="show_all" autocomplete="off"></input>
+			<div class="comments more">
+				<% for( let i = comments.list.length-1-cl ; i >= 0 ; i-- ) { %>
+					<div class="comment">
+						<div class="authorbox">
+							<span class="author"><%= comments.list[i].author %></span>
+			    		    <span class="timestamp">wrote at <%= new Date(comments.list[i].create) %></span>
+						</div>
+						<hr class="speperator">
+						<div class="body"><%- comments.list[i].content?.replaceAll("<", "&lt;")?.replaceAll("\n", "<br>") %></div>
+					</div>
+				<% } %>
+
+				<%- include("seemore.ejs", {html: '<label for="show_all" class="more">show all</label><label for="show_all" class="less">show less</label>'}) %>
+			</div>
+			
+			<div class="hidden">.</div>
+		</div>
+	</div>
+</div>
+	

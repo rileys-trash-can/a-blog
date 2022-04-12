@@ -1,0 +1,23 @@
+/* minimum layout to make site usable*/
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black
+}
+
+.entrybox > .entry > .preview > .cat404 {
+    width: 50%;
+}
+
+/* share */
+.socialicon {
+    height: 2em;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+}
+
+.footer > a.text {
+	position: relative;
+	font-size: 0.7em;
+}
+

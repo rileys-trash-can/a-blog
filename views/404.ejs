@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("common/head.ejs", {title: "not found"}) %>
+</head>
+
+<body>
+    <div class="menubox">
+		<%- include("common/menubox"); %>
+    </div>
+
+    <div class="content">
+    	<%- include("common/notice.ejs", {
+			"type": "error",
+    		"title": "Error: 404",
+    		"message": "Sad to break this to you, but the site you requested is not available.\n<br>To condem your sadness here you have a picture of a cat!<br>\n<img title=\"cat from thiscatdoesnotexists.com\" class=\"cat404\" src=\"https://thiscatdoesnotexist.com/\"",
+    	}) %>
+      	<%- include("common/share.ejs", {url: url,
+    		message: "Hey, share the absence of content!",
+    	}) %>
+    </div>
+
+    <div class="footer">
+		<%- include("common/footer"); %>
+    </div>
+</body>
+
+</html>

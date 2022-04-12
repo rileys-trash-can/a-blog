@@ -1,0 +1,24 @@
+<div class="entrybox">
+	<div class="entry">
+		<h1 class="title clickable"><a href="/posts/<%= post.id %>#<%= post.headline %>"><%= post.headline %></a></h1>
+		<div class="subtitle author">BY 
+			<% for(let i = 0 ; i < post.author.length ; i++ ) { %>
+				<a class="author" href="/author/<%= post.author[i] %>"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>
+			<% } %>
+		</div>
+		<hr  class="seperator">
+		<div class="preview"><%= post.subline %></div>
+		<hr  class="seperator">
+		<div class="tagtitle">Tags:</div>
+		<div class="brow">
+			<span class="field left"><% for ( let i = 0 ; i < post.tags.length ; i ++) {%>
+				<span class="entry"><a href="/tag/<%= post.tags[i] %>"><%= post.tags[i] %></a></span>
+			<% } %> </span>
+			<span class="field right">
+				<span class="entry upvote"   title="upvotes"  ><a class="upvote"  ><%= post.rating.up   %></a></span>
+				<span class="entry downvote" title="downvotes"><a class="downvote"><%= post.rating.down %></a></span>
+			</span>
+		</div>
+	</div>
+</div>
+

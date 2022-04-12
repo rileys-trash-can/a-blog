@@ -3,16 +3,23 @@ version: "3"
 services:
  node:
    build: .
-   ports:
-     - "80:8080"
+   volumes:
+     - ./views:/usr/src/app/views
+     - ./static:/usr/src/app/static
+     - ./config:/usr/src/app/config
    environment:
      - KEY=VALUE
    links:
-     - database
+     - mongo
    depends_on:
-     - database
+     - mongo
+   ports:
+     - "8080:80"
+   tty: true
+   stdin_open: true
+
  mongo:
-   image: mongo:latest
+   image: mongo:5.0.6
    ports:
      - "27017:27017"
    volumes:
