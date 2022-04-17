@@ -1,6 +1,6 @@
 # a-blog
 
-a nodejs express jsonDB blog
+a nodejs express mongodb blog using docker
 
 ---
 
@@ -16,19 +16,7 @@ git clone https://github.com/Eds-trash-can/a-blog.git
 cd a-blog
 ```
 
-3. configure
+4. create docker container
 ```bash
-cp config/config.example.yaml config/config.yaml
-nano config/config.yaml
-```
-
-4. create storage files
-```bash
-touch storage/posts.json
-touch storage/comments.json
-```
-
-5. start up
-```bash
-node node/app
+docker-compose up -d
 ```
