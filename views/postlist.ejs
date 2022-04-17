@@ -31,8 +31,10 @@
 				<% if( tags ) { %>
 					<div class="brow">
 						<span class="field left"><% for ( let i = 0 ; i < tags.length ; i ++) {%>
-							<span class="entry"><a href="/search?tag=<% tags[i] %>"><%= tags[i] %></a></span>
-						<% } %></span>
+							<span class="entry"><a title="remove tag from search" href="/tag/<%= tags.filter(tag => tag !== tags[i]).join("+") %>"><%= tags[i] %></a></span>
+						<% } %> 
+						<span class="entry"><form method="GET" action="/tag/<%= tags.join("+") %>"><input type="text" placeholder="add tag" name="add"><input type="submit" title="add tag" value="+"></form></span>
+						</span>
 					</div>
 				<% } %>
 			</div>

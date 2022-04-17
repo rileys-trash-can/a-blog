@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include("common/head.ejs", {title: "home"}) %>
+    <%- include("common/head.ejs", {title: post.headline}) %>
 </head>
 
 <body>
@@ -16,8 +16,12 @@
 		<% } %>
     	<%- include("common/share.ejs", {url: url, message: false}) %>
 		<%- include("common/post.ejs", {post: post, voting: voting}) %>
-		<%- include("common/commenting.ejs", {token: ctoken, post: post.id}) %>
-		<%- include("common/commentlist.ejs", {comments: post.comments, cl: 7}) %>
+		<% if( post.comments.enabled ) { %>
+			<%- include("common/commenting.ejs", {token: ctoken, post: post._id}) %>
+			<% if( post.comments.list.length > 0 ) { %>
+				<%- include("common/commentlist.ejs", {comments: post.comments, cl: 7}) %>
+			<% } %>
+		<% } %>
     </div>
 
     <div class="footer">

@@ -1,0 +1,5 @@
+<div class="cards <%= tag ? tag : ""%>">
+	<% for( let post of posts) { %>
+		<%- include("postcard", {post}) %>
+	<% } %>
+</div>

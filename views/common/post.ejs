@@ -1,9 +1,9 @@
 <div class="entrybox">
 	<div class="entry">
-		<h1 class="title" href="/posts/<%= post.id %>#<%= post.headline%>"><%= post.headline %></h1>
+		<h1 class="title" href="/posts/<%= post._id %>#<%= post.headline%>"><%= post.headline %></h1>
 		<div class="subtitle author">BY 
 			<% for(let i = 0 ; i < post.author.length ; i++ ) { %>
-				<a class="author" href="/search?author=<%= post.author[i] %>"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>
+				<a class="author" href="/author/<%= post.author[i] %>?name"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>
 			<% } %>
 		</div>
 		<hr  class="seperator">
@@ -16,8 +16,8 @@
 				<span class="entry"><a href="/search?tag=<% post.tags[i] %>"><%= post.tags[i] %></a></span>
 			<% } %> </span>
 			<span class="field right">
-				<span class="entry upvote   <%= voting.up.clicked   ? "clicked" : "" %>" title="upvotes  "><a class="upvote  " href="/posts/<%= post.id %>/vote?token=<%= voting.up.token   %>"><%= post.rating.up   %></a></span>
-				<span class="entry downvote <%= voting.down.clicked ? "clicked" : "" %>" title="downvotes"><a class="downvote" href="/posts/<%= post.id %>/vote?token=<%= voting.down.token %>"><%= post.rating.down %></a></span>
+				<span class="entry upvote   <%= voting.up.clicked   ? "clicked" : "" %>" title="upvotes  "><a class="upvote  " href="/posts/<%= post._id %>/vote?token=<%= voting.up.token   %>"><%= post.rating.up   %></a></span>
+				<span class="entry downvote <%= voting.down.clicked ? "clicked" : "" %>" title="downvotes"><a class="downvote" href="/posts/<%= post._id %>/vote?token=<%= voting.down.token %>"><%= post.rating.down %></a></span>
 			</span>
 		</div>
 	</div>

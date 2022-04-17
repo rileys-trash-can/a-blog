@@ -101,26 +101,33 @@ body, html {
 	}
 }
 
-.entrybox > .entry > .title {
+.title {
     left: 0px;
     margin-top: 10px;
     margin-bottom: 0px;
 }
-.entrybox > .entry > .seperator {
+.seperator {
     position: relative;
     height: 0px;
     top: 0.2em;
 }
-.entrybox > .entry > .preview {
+.preview {
     position: relative;
     top: 0.5em;
     margin-bottom: 1em;
 }
 
-.entrybox > .entry > .preview > .cat404 {
+.preview > .cat404 {
     margin-left: 25%;
     margin-top: .5em;
     width: 50%;
+}
+
+/* author styling */
+.authorimg {
+	margin-top: .4em;
+	max-width: 6em;
+	max-height: 6em;
 }
 
 /* share */
@@ -136,6 +143,33 @@ body, html {
     color: blue
 }
 
+/* postcards */
+.cards {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cards > .card {
+	width: calc( 100% / 3 - 6px - 1.5em );
+
+	border-width: 1px;
+	border-style: solid;
+
+	border-top-width: 0.3em;
+	border-top-style: solid;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+	padding-bottom: 0.5em;
+
+    margin: 0.25em;
+}
+
+.cards > .card > .title {
+	font-size: 2em;
+}
+
 /* forms */
 .entrybox > .entry > .form {
     display: flex;
@@ -144,7 +178,13 @@ body, html {
     display: flex;
 }
 
+.hidden {
+	visibility: hidden;
+}
 .sqish {
+	padding: 0;
+	display: block;
+	margin: 0;
 	height: 0;
 	width: 0;
 }
@@ -192,7 +232,49 @@ form > input.submit {
 	height: 0;
 }
 
-.more > .pager {
+/* author check thinggy */
+#show_all + div > .extended {
+	visibility: hidden;
+	height: 0;
+	padding: 0;
+	margin: 0;
+}
+:not(#show_all:checked) + div > .extended > * {
+	height: 0;
+	padding: 0;
+	margin: 0;
+}
+#show_all:checked + div > .extended {
+	visibility: visible;
+	height: auto;
+}
+:not(#show_all:checked) + div > .pager > .pager > .entry > * {
+	display: inline;
+}
+:not(#show_all:checked) + div > .pager > .pager > .entry > .less {
+	visibility: hidden;
+	font-size: 0;
+}
+#show_all:checked + div > .pager > .pager > .entry > .less {
+	visibility: visible;
+	font-size: 1em;
+}
+
+#show_all + div > .pager > .pager > .entry > .more {
+	visibility: visible;
+	font-size: 1em;
+}
+#show_all:checked + div > .pager > .pager > .entry > .more {
+	visibility: hidden;
+	font-size: 0;
+}
+
+.pager {
+	height: 2.2em;
+}
+
+.more > .pager,
+.pager > * {
 	user-select: none;
 }
 
@@ -242,22 +324,25 @@ form > input.submit {
 }
 
 /* brow */
-.entrybox > .entry > .brow {
+.brow {
 	position: relative;
+	display: inline-block;
 	width: 100%;
-	height: 2.1em;
 }
-.entrybox > .entry > .brow > .field.right {
+.brow > .field > .text {
+	font-family: slkscr;
+}
+.brow > .field.right {
 	position: relative;
 	
 	float: right;
 }
-.entrybox > .entry > .brow > .field.left {
+.brow > .field.left {
 	position: relative;
-	
+	display: block ruby;	
 	float: left;
 }
-.entrybox > .entry > .brow > .field > .entry {
+.brow > .field > .entry {
 	position: relative;
 	top: 0.4em;
 	left: -0.3em;
@@ -360,4 +445,12 @@ form > input.submit {
 /* search */
 .subtitle.search {
 	padding-bottom: 0.3em;
+}
+
+.flex {
+	display: flex;
+}
+
+.antiflex {
+	display: block;
 }

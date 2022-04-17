@@ -3,16 +3,19 @@ const crypto = require("crypto")
 const {kv} = require("./utils.js")
 const {Remarkable} = require("remarkable")
 const geoip = require("geoip-ultralightplus")
+const {ObjectId} = require("mongodb")
 
 const md = new Remarkable({
 	breaks: true,
 })
 
-const hash = crypto.createHmac("sha256", "this is a very very very very very dumb secret")
+function sha256( str ) {
+	return crypto.createHmac("sha256", "sücret").update(str).digest("hex")
+}
 
 class Post {
 	constructor(data) {
-		this.id = data.id
+		this._id = data._id
 		this.headline = data.headline
 		this.subline = data.subline
 		this.create = data.create
@@ -45,14 +48,32 @@ class Post {
 		projection.author   = 1
 		projection.tags     = 1
 		projection.rating   = 1
-		projection.id       = 1
+		projection._id      = 1
 		
 		return projection
 	}
 
+	static byAuthor( name, db ) {
+		return db.aggregate([
+			{
+				$match: {
+					hidden: false,
+					author: {
+						"$in": [name]
+					}
+				}
+			},
+			{
+				$sort: {
+					create: -1
+				}
+			}
+		])
+	}
+
 	// comment
-	static async comment( db, id, ip, content) {
-		return await db.updateOne({id:id, "comments.enabled": true}, {
+	static async comment( db, _id, ip, content) {
+		return await db.updateOne({_id: ObjectId(_id), "comments.enabled": true}, {
 			$push: {
 				"comments.list": {
 					author: content.name ?
@@ -66,23 +87,25 @@ class Post {
 	}
 	
 	// vote on post based on id
-	static async vote( db, id, ip, type ) {
-		ip = hash.update(ip)
+	static async vote( db, _id, ip, type ) {
+		ip = sha256(ip)
+
+		console.log("_id", _id, "ip", ip, "type", type)
 		
-		return await db.updateOne({id:id}, {
+		return await db.updateOne({_id: ObjectId(_id)}, {
 			$inc: kv("rating." + type, 1),
 			$set: kv("raters." + ip, type),
 		})
 	}
 
 	// change vote if allready voted: await Post.changeVote(posts, data.post, data.ip, data.vote)
-	static async changeVote( db, id, ip, type ) {
-		ip = hash.update(ip);
+	static async changeVote( db, _id, ip, type ) {
+		ip = sha256(ip)
 
 		let itype = type === "up" ? "down" : "up"
 
 		// change vote score & change status
-		return await db.updateOne({id:id}, {
+		return await db.updateOne({_id: ObjectId(_id)}, {
 			"$inc": Object.assign( // change vote
 				kv("rating." +  type, +1),
 				kv("rating." + itype, -1)
@@ -93,14 +116,14 @@ class Post {
 	}
 
 	// checking if ip has allready voted:
-	static async getVote( db, id, ip ) {
-		ip = hash.update(ip);
+	static async getVote( db, _id, ip ) {
+		ip = sha256(ip)
 		
 		return (
 			await db.findOne(
 				Object.assign(
 					{
-						id: id,	
+						_id: ObjectId(_id),	
 					},
 					kv("raters." + ip, {
 						$exists: true
@@ -115,8 +138,10 @@ class Post {
 		)?.raters[ip]
 	}
 
-	static async get( id, db ) {
-		let dbq = await db.findOne({id:id}, {projection: {
+	static async get( _id, db, authorDB ) {
+		if( !ObjectId.isValid(_id ) ) return null
+
+		let dbq = await db.findOne({_id:ObjectId(_id)}, {projection: {
 					"headline":1,
 					"subline": 1,
 					"create":  1,
@@ -125,9 +150,10 @@ class Post {
 					"content": 1,
 					"comments":1,
 					"rating":  1,
-					"id":      1,
+					"_id":     1,
 				}})
-		return dbq ? new Post(dbq) : null
+		if( !dbq ) return null
+		return new Post(dbq)
 	}
 
 	markdown() {
@@ -162,24 +188,3 @@ module.exports.examplePost = new Post({
 		down: 9,
 	}
 })
-
-class PostList extends Array {
-	constructor( data ) {
-		super()
-		PostList.arrayOnly( data, this )
-	}
-
-	static arrayOnly( data, arr = [] ) {
-		data.forEach(post => arr.push(new Post(post)))
-		return arr
-	}
-
-	exportIds( ids = [] ) {
-		this.forEach(post => {
-			ids.push(post.id)
-		})
-		return ids
-	}
-}
-
-module.exports.PostList = PostList

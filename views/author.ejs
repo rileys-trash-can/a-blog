@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("common/head.ejs", {title: author.name}) %>
+</head>
+
+<body>
+    <div class="menubox">
+		<%- include("common/menubox"); %>
+    </div>
+
+    <div class="content">
+		<% if( author.notice ) { %>
+		<%- include("common/notice.ejs", author.notice) %>
+		<% } %>
+		<div class="entrybox">
+			<div class="entry">
+				<span class="flex" style="width: 100%">
+					<% if( author.picture ) { %>
+						<img class="authorimg" src="<%- author.picture %>">
+					<% } %>
+					<div style="padding-left: .2em; width: 100%">
+						<span class="title"><%= author.name %></span>
+						<span class="brow heigh" style="width: 100%">
+							<span class="field left">
+								<span class="text">I mostly do...</span>
+							</span>
+							<span class="field right"><% for ( let i = 0 ; i < author.category.length ; i ++) {%>
+								<span class="entry"><a href="/search?tag=<%= author.category[i] %>"><%= author.category[i] %></a></span>
+							<% } %></span>
+						</span>
+					</div>
+				</span>
+				<hr class="seperator">
+				<%- author.markdown() %>
+			</div>
+		</div>
+
+		<div class="entrybox">
+			<div class="entry">
+				<span class="title">newest posts:</span>
+				<hr class="seperator">
+				<input class="hidden sqish" type="checkbox" id="show_all">
+				<div>
+					<%- include("common/postcardlist", {posts: author.posts.slice(0,12),        tag: false}) %>
+					<% if( author.posts.length > 12 ) { %>
+						<%- include("common/postcardlist", {posts: author.posts.slice(12,Infinity), tag: "extended"}) %>
+						<%- include("common/seemore.ejs", {html: "<label class=\"entry\" for=\"show_all\"><span class=\"more\">- show all -</span><span class=\"less\">- show less -</span></label>"}) %>
+					<% } %>
+				</div>
+			</div>	
+		</div>
+		
+    	<%- include("common/share.ejs", {url, message: false}) %>
+    </div>
+
+    <div class="footer">
+		<%- include("common/footer"); %>
+    </div>
+</body>
+
+</html>

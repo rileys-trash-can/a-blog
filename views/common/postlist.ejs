@@ -1,6 +1,6 @@
 <div class="entrybox">
 	<div class="entry">
-		<h1 class="title" href="/posts/<%= post.id %>#<%= post.headline%>"><%= post.headline %></h1>
+		<h1 class="title" href="/posts/<%= post._id %>#<%= post.headline%>"><%= post.headline %></h1>
 		<div class="subtitle author">BY 
 			<% for(let i = 0 ; i < post.author.length ; i++ ) { %>
 				<a class="author" href="/search?author=<%= post.author[i] %>"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>

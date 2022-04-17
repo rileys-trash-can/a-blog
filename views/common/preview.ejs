@@ -1,9 +1,9 @@
 <div class="entrybox">
 	<div class="entry">
-		<h1 class="title clickable"><a href="/posts/<%= post.id %>#<%= post.headline %>"><%= post.headline %></a></h1>
+		<h1 class="title clickable"><a href="/posts/<%= post._id %>#<%= post.headline %>"><%= post.headline %></a></h1>
 		<div class="subtitle author">BY 
 			<% for(let i = 0 ; i < post.author.length ; i++ ) { %>
-				<a class="author" href="/author/<%= post.author[i] %>"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>
+				<a class="author" href="/author/<%= post.author[i] %>?name"><%= post.author[i] %></a><% if(i !== post.author.length-1 ) { %><%= ", " %><% } %>
 			<% } %>
 		</div>
 		<hr  class="seperator">

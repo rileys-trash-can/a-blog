@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+
+<channel>
+	<title>DerZombiiies Blog</title>
+	<link>http://blog.derzombiiie.com/</link>
+	<description>Some of them internet</description>
+	<language>en</language>
+
+	<% for( let post of posts ) { %>
+	<item>
+		<title><%= post.headline %></title>
+		<description><%= post.subline %></description>
+		<link>http://blog.derzombiiie.com/posts/<%= post._id %></link>
+		<guid>http://blog.derzombiiie.com/posts/<%= post._id %></guid>
+		<author><%= post.author.map(author => `${author}@blog.derzombiiie.com (${author})`).join("; ") %></author>
+	</item>
+	<% } %>
+	
+	</channel>
+</rss>

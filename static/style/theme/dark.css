@@ -43,13 +43,13 @@ body, html {
 .entrybox > .entry:hover {
     background-color: #6d5dbf33;
 }
-.entrybox > .entry > .title {
+.title {
     position: relative;
     font-size: 3em;
     font-family: slkscr;
     color: #AAAAAA;
 }
-.entrybox > .entry > .title > * {
+.title > * {
     font-family: slkscr;
 }
 .entrybox > .entry > .title.clickable:hover {
@@ -104,10 +104,10 @@ form.comment > * {
 }
 
 /* tags */
-.entrybox > .entry > .field {
+.field {
 	height: 2em;
 }
-.entrybox > .entry > .brow > .field > .entry {
+.brow > .field > .entry {
 	border-color: #6d5dbf;
 	border-width: 1px;
 	border-style: solid;
@@ -117,41 +117,50 @@ form.comment > * {
 	border-top-style: solid;
 }
 
-.entrybox > .entry > .brow > .field > .entry > a {
+.brow > .field > .entry > a {
 	font-family: slkscr;
 	color: #AAAAAA
 }
-.entrybox > .entry > .brow > .field > .entry:hover {
+.brow > .field > .entry:hover {
 	background-color: #6f5dbf33
 }
-.entrybox > .entry > .brow > .field > span > a {
+.brow > .field > span > a {
 	font-family: slkscr;
 	color: #AAAAAA;
 }
-.entrybox > .entry > .brow > .field > .upvote {
+.brow > .field > .upvote {
 	border-color: green;
 }
-.entrybox > .entry > .brow > .field > span.downvote {
+.brow > .field > span.downvote {
 	border-color: red;
 }
-.entrybox > .entry > .brow > .field.clickable > span.upvote:hover {
+.brow > .field.clickable > span.upvote:hover {
 	background-color: #00000000;
 }
-.entrybox > .entry > .brow > .field.clickable > span.downvote:hover {
+.brow > .field.clickable > span.downvote:hover {
 	background-color: #00000000;
 }
-.entrybox > .entry > .brow > .field.clickable > span.upvote:hover {
+.brow > .field.clickable > span.upvote:hover {
 	background-color: #007F0033;
 }
-.entrybox > .entry > .brow > .field.clickable > span.downvote:hover {
+.brow > .field.clickable > span.downvote:hover {
 	background-color: #7F000033;
 }
 
-.entrybox > .entry > .brow > .field > span.upvote.clicked {
+.brow > .field > span.upvote.clicked {
 	background-color: #007F0066;
 }
-.entrybox > .entry > .brow > .field > span.downvote.clicked {
+.brow > .field > span.downvote.clicked {
 	background-color: #7F000099;
+}
+
+/* tag search add tag form */
+.brow > .field > .entry > form > input {
+	background-color: #202020;
+	border-color: #00000000;
+}
+.brow > .field > .entry > form > input[type="text"] {
+	width: 5em;
 }
 
 * {
@@ -211,7 +220,8 @@ form.comment > * {
 	border-top-width: 0.2em;
 	border-top-style: solid;
 }
-.pager > .pager.entry > a {
+.pager > .pager.entry > *,
+.pager > .pager.entry > * > * {
 	color: #AAAAAA;
 	font-family: slkscr;
 }

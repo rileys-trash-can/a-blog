@@ -10,13 +10,14 @@ const {TokenGenerator}   = require("./token")
 const cookieParser = require('cookie-parser')
 const { Remarkable } = require("remarkable")
 const bodyParser = require("body-parser")
+const {Author} = require("./author")
 
 // token generators:
 const voteToken = new TokenGenerator()
 const commentingToken = new TokenGenerator()
 
 // some db variables do need to be global
-let blogDB, posts, user
+let blogDB, posts, authors
 
 // other globals
 let sort
@@ -71,9 +72,9 @@ app.get("/posts", async (req, res) => {
 	const postsPerPage = 20
 	const page = req.query.page ? (Number(req.query.page) > 0 ? Number(req.query.page) : 0 ) : 0
 	const sorter = req.query.sort ? (sort.isValidSort(req.query.sort) ? sort[req.query.sort] : sort.updownVoteAsc ) : sort.updownVoteAsc
-	
+		
 	res.render("postlist", {
-		posts: await sorter.preview().limit(postsPerPage).skip(postsPerPage * page).toArray(),
+		posts: await sorter.preview().skip(postsPerPage * page).limit(postsPerPage).toArray(),
 		url: "https://" + req.get("host") + req.originalUrl,
 		title: "posts",
 		pager: {
@@ -86,9 +87,21 @@ app.get("/posts", async (req, res) => {
 	})	
 })
 
+// rss
+app.get("/rss.xml", async (req, res) => {
+	res.type("xml")
+	res.render("rss", {
+		posts: await sort.dateDesc.preview().limit(20).toArray(),
+	})
+})
+
 // search for tags (only):
 app.get("/tag/:tags", async (req, res) => {
 	const tags = req.params.tags.split("+")
+	// add tags thing:
+	if( req.query.add )
+		return res.redirect("/tag/" + tags.concat(req.query.add.toLowerCase()).join("+"))
+
 	const filter = sort.tag(tags)
 	const page = req.query.page ? (Number(req.query.page) > 0 ? Number(req.query.page) : 0 ) : 0
 
@@ -121,6 +134,27 @@ app.get("/author/:author", async (req, res) => {
 		})
 		return
 	}
+
+	let author;
+
+	if( req.query.name !== undefined )
+		author = await Author.byName( req.params.author, authors )
+	else
+		author = await Author.get( req.params.author, authors )
+
+	if( !author ) {
+		res.status(404)
+		res.render("404", {
+			url: req.originalUrl,
+		})
+		return
+	}
+
+
+	res.render("author", {
+		author: await author.render( posts ),
+		url: req.originalUrl,
+	})
 })
 
 // read singular post
@@ -151,7 +185,7 @@ app.get("/posts/:id", async (req, res) => {
 			"message": "There was an error trying to comment on this post, please try again.",
 		}
 
-	let post = await Post.get(Number(req.params.id), posts)
+	let post = await Post.get(req.params.id, posts, authors)
 	
 	if( !post ) { // 404
 		res.status(404)
@@ -164,15 +198,15 @@ app.get("/posts/:id", async (req, res) => {
 	post.markdown()
 	res.render("post", {
 		post: post,
-		ctoken: commentingToken.generate(1000*60*30, {ip: getIp(req), post: Number(req.params.id)}),
+		ctoken: commentingToken.generate(1000*60*30, {ip: getIp(req), post: req.params.id}),
 		url: "http://" + req.get("host") + req.originalUrl,
 		voting: {
 			up: {
-				token: voteToken.generate(1000*60*30, {ip: getIp(req), post: Number(req.params.id), vote: "up"}),
+				token: voteToken.generate(1000*60*30, {ip: getIp(req), post: req.params.id, vote: "up"}),
 				clicked: req.cookies[req.params.id+".vote"] ? req.cookies[req.params.id+".vote"] === "up" : false,
 			},
 			down: {
-				token: voteToken.generate(1000*60*30, {ip: getIp(req), post: Number(req.params.id), vote: "down"}),
+				token: voteToken.generate(1000*60*30, {ip: getIp(req), post: req.params.id, vote: "down"}),
 				clicked: req.cookies[req.params.id+".vote"] ? req.cookies[req.params.id+".vote"] === "down" : false,
 			},
 		},
@@ -244,7 +278,7 @@ app.post("/posts/:id/comment", async (req, res) => {
 		console.log("commenting", req.body.comment.length, "chars on post", req.params.id, "from", data.ip)
 
 		// commenting:
-		await Post.comment( posts, Number(req.params.id), data.ip, {
+		await Post.comment( posts, req.params.id, data.ip, {
 			name: req.body.name,
 			comment: req.body.comment,
 		})
@@ -274,13 +308,12 @@ await Promise.all([
 	new Promise(r => app.listen(80, _ => r(console.log(`Listening on :80`)))),
 ])
 
-blogDB = mongoClient.db("blog")    // blog go here
-posts = blogDB.collection("posts") // post go here
-user  = blogDB.collection("user")  // users (admin pannel + mby comments or sth)
-
+blogDB  = mongoClient.db("blog")    // blog go here
+posts   = blogDB.collection("posts") // post go here
+authors = blogDB.collection("authors") // authors go here
 
 // sorting stuff
-sort = new Sorter(posts, collection)
+sort = new Sorter(posts, collection, authors)
 
 con.registercmd("eval", async (av, r) => {
 	try {
@@ -300,3 +333,4 @@ con.init()
 
 
 main()
+

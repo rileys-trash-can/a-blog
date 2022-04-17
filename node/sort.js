@@ -180,7 +180,7 @@ class Filter {
 	}
 }
 
-class tagSort extends Filter {
+class tagFilter extends Filter {
 	constructor( db, tags ) {
 		super( db )
 		
@@ -200,10 +200,32 @@ class tagSort extends Filter {
 		])
 	}
 }
+
+class authorFilter extends Filter {
+	constructor( db, authors ) {
+		super( db )
+		
+		this.authors = (authors instanceof Array) ? authors : [authors]
+	}
+
+	preview() {
+		return this.db.aggregate([
+			{
+				$match: {
+					hidden: false,
+					author: {
+						"$in": this.authors
+					}
+				}
+			}
+		])
+	}
+}
 	
 class Sorter {
-	constructor( db, collection ) {
+	constructor( db, collection, authors ) {
 		this.db = db
+		this.authors = authors
 		this.sorters = {}
 		collection.forEach(sa => {
 			this.sorters[sa.name] = new sa(db)
@@ -220,7 +242,10 @@ class Sorter {
 	}
 
 	tag(tags) {
-		return new tagSort(this.db, tags)
+		return new tagFilter(this.db, tags)
+	}
+	author(authors) {
+		return new authorFilter(this.db, authors)
 	}
 }
 module.exports.Sorter = Sorter
