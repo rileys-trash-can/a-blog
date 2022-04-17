@@ -43,7 +43,7 @@
 				<hr class="seperator">
 				<input class="hidden sqish" type="checkbox" id="show_all">
 				<div>
-					<%- include("common/postcardlist", {posts: author.posts.slice(0,12),        tag: false}) %>
+					<%- include("common/postcardlist", {posts: author.posts.slice(0,12), tag: false}) %>
 					<% if( author.posts.length > 12 ) { %>
 						<%- include("common/postcardlist", {posts: author.posts.slice(12,Infinity), tag: "extended"}) %>
 						<%- include("common/seemore.ejs", {html: "<label class=\"entry\" for=\"show_all\"><span class=\"more\">- show all -</span><span class=\"less\">- show less -</span></label>"}) %>

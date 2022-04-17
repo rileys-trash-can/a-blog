@@ -19,7 +19,24 @@
 		<% if( post.comments.enabled ) { %>
 			<%- include("common/commenting.ejs", {token: ctoken, post: post._id}) %>
 			<% if( post.comments.list.length > 0 ) { %>
-				<%- include("common/commentlist.ejs", {comments: post.comments, cl: 7}) %>
+				<div class="entrybox">
+					<div class="entry metaentry">
+						<div class="title">comments:</div>
+						<hr class="seperator">
+						<div class="preview comments">
+							These comments are user generated! they are <strong>NOT</strong> (actively) moderated! To report one please click <a href="/static/reporting.html" style="color:blue">here</a>!
+							<input class="hidden sqish" type="checkbox" id="show_all" autocomplete="off">
+							<div class="comments">
+								<%- include("common/commentlist.ejs", {comments: post.comments.list.slice(0,6), tag:false}) %>
+								<% if( post.comments.list.length > 6 ) { %>
+									<%- include("common/commentlist.ejs", {comments: post.comments.list.slice(6,Infinity), tag:"extended"}) %>
+									<br>
+									<%- include("common/seemore.ejs", {html: "<label class=\"entry\" for=\"show_all\"><span class=\"more\">- show all -</span><span class=\"less\">- show less -</span></label>"}) %>
+								<% } else { %><br><% } %> 
+							</div>
+						</div>
+					</div>
+				</div>
 			<% } %>
 		<% } %>
     </div>
