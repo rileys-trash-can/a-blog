@@ -24,8 +24,27 @@ class dateDesc extends Sortable { // by date descending aka newest
 		this.tName = "dateDesc"
 	}
 
+	query() {
+		return this.db.find({"hidden":false}).sort({"create": -1})
+	}
+
 	preview() {
-		return this.db.find({"hidden":false}).sort({"create": -1}).project(Post.previewProjection())
+		return this.query().project(Post.previewProjection())
+	}
+
+	async render( i, comments = 1 ) {
+		let posts = await this.query().project(Post.previewProjection({content:1})).limit(i).toArray()
+
+		for( let post in posts ) {
+			post = new Post(post)
+			post.markdown()
+		}
+
+		return posts
+	}
+
+	noComments() {
+		return this.query().project(Post.previewProjection({content:1}))
 	}
 }
 

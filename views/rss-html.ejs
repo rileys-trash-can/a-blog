@@ -10,7 +10,7 @@
 	<% for( let post of posts ) { %>
 	<item>
 		<title><%= post.headline %></title>
-		<description><%= post.subline %>.---.<%= post.content %></description>
+		<description><![CDATA[<%- post.subline %><br>---<br><%- post.content %>]]></description>
 		<link>http://blog.derzombiiie.com/posts/<%= post._id %></link>
 		<guid>http://blog.derzombiiie.com/posts/<%= post._id %></guid>
 		<category><%= post.tags.join(" ") %></category>

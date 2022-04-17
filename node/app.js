@@ -90,9 +90,14 @@ app.get("/posts", async (req, res) => {
 // rss
 app.get("/rss.xml", async (req, res) => {
 	res.type("xml")
-	res.render("rss", {
-		posts: await sort.dateDesc.preview().limit(20).toArray(),
-	})
+	if( req.query.html !== undefined )
+		res.render("rss-html", {
+			posts: await sort.dateDesc.render(20, false),
+		})
+	else
+		res.render("rss", {
+			posts: await sort.dateDesc.noComments(false).limit(20).toArray(),
+		})
 })
 
 // search for tags (only):
