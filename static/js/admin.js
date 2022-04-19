@@ -1,79 +1,27 @@
-$(document).ready(() => {
-	mde = new SimpleMDE({
-		element: document.getElementById("mde")
-	})
-})
-
-function previewpost() {
-	let tags = $(".editor.tags").val().split(/[\,\ ]/gm).filter(i=> i!="" )
-
-	// createpost with id "preview"
-	$.post("/admin/post", {
-			"action": "set",
-			"id": "preview",
-			"title": $(".editor.title").val(),
-			"body": mde.value(),
-			"tags": tags,
-			"time": "auto",
-			"author": $(".editor.author").val(),
-			"desc": $(".editor.desc").val()	
-	}).then(res=>{
-		if( res.type == "s" ) {
-			$(".link").attr("href", "/posts?post=preview")
-			document.getElementsByClassName("link")[0].click()
-		} else {
-			alert( "Err! " + res.text )
-		}
-	})
-}
-
-function post() {
-	// check if pushed accidentally:
-	let check = Math.floor( Math.random()*10**5 )
-
-	if( prompt( "To proceed posting please type: " + check ) != check ) {
-		alert( "wrong!" )
-		//return
-	}
-
-	// push post
-	let tags = $(".editor.tags").val().split(/[\,\ ]/).filter(i=> i!="" )
-
-	// createpost with id "preview"
-	$.post("/admin/post", {
-			"action": "push",
-			"title": $(".editor.title").val(),
-			"body": mde.value(),
-			"tags": tags,
-			"time": "auto",
-			"author": $(".editor.author").val(),
-			"desc": $(".editor.desc").val()	
-	}).then(res=>{
-		if( res.type == "s" ) {
-			alert( "Post live!" )
-		} else {
-			alert( "Err! " + res.text )
-		}
-	})
+document.onreadystatechange = _ => {
+	if( document.readyState === "complete" )
+		mde = new SimpleMDE({
+			element: document.getElementById("mde")
+		})
 }
 
 function save() {
-	let tags = $(".editor.tags").val().split(/[\,\ ]/).filter(i=> i!="" )
+	let tags = document.getElementsByClassName("editor tags")[0].value.split(/[\,\ ]/).filter(i=> i!="" )
 
 	let filename = prompt("Please enter a file name:")
 		filename = filename ? filename : "post.export" 
 
 	let postjson = {
-		"title": $(".editor.title").val(),
+		"title": document.getElementsByClassName("editor title").value,
 		"body": mde.value(),
 		"tags": tags,
-		"author": $(".editor.author").val(),
-		"desc": $(".editor.desc").val()	
+		"author": document.getElementsByClassName("editor author").value,
+		"desc": document.getElementsByClassName("editor desc").value,	
 	}		
 
 	// dl it locally ( as .json )
-	$(".dl").attr("download", filename+".json")
-	$(".dl").attr("href", "data:application/json;charset=utf-8," + encodeURIComponent( JSON.stringify(postjson) ))
+	document.getElementsByClassName("dl")[0].download = filename+".json"
+	document.getElementsByClassName("dl")[0].href     = "data:application/json;charset=utf-8," + encodeURIComponent( JSON.stringify(postjson) )
 	document.getElementsByClassName("dl")[0].click()
 	
 }
@@ -85,12 +33,12 @@ function load() {
 	read.onload = (e) => {
 		let p = JSON.parse( e.target.result )
 
-		$(".editor.title").val (p.title)
-		mde.value              (p.body)
-		$(".editor.tags").val  (p.tags.join(", "))
-		$(".editor.author").val(p.author)
-		$(".editor.desc").val  (p.desc)
-	
+		document.getElementsByClassName("editor title").value = p.title
+		document.getElementsByClassName("editor tags").val    = p.tags.join(", ")
+		document.getElementsByClassName("editor author").val  = p.author
+		document.getElementsByClassName("editor desc").val    = p.desc
+		mde.value(p.body)
+
 		console.log(p)
 	}
 }
