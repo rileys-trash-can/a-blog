@@ -1,26 +1,28 @@
 const fs        = require("fs").promises
 const express   = require("express")
 const ejs       = require("ejs")
-const { Post, examplePost } = require("./posts")
+const {Post, examplePost} = require("./posts")
 const {getIp} = require("./utils")
 const con       = require("rl-console")
 const {MongoClient} = require("mongodb")
 const {collection, Sorter}  = require("./sort")
 const {TokenGenerator}   = require("./token")
 const cookieParser = require('cookie-parser')
-const { Remarkable } = require("remarkable")
+const {Remarkable} = require("remarkable")
 const bodyParser = require("body-parser")
 const {Author} = require("./author")
+const {Authenticator} = require("./2fa")
 
 // token generators:
 const voteToken = new TokenGenerator()
 const commentingToken = new TokenGenerator()
 
 // some db variables do need to be global
-let blogDB, posts, authors
+let blogDB, posts, authors, secrets
 
 // other globals
-let sort
+let sort, authenticator
+let evil = []
 
 // express
 const app = express()
@@ -295,6 +297,34 @@ app.post("/posts/:id/comment", async (req, res) => {
 
 })
 
+app.use("/admin", async (req, res, next) => {
+	if( evil.includes(getIp(req)) ) return
+
+	const auth = ( req.headers.authorization || "" ).split(" ")[1] || ""
+	const [user, pass] = Buffer.from(auth, "base64").toString().split(":")
+	let valid
+
+	// do pass checking:
+	if( !user | !pass | !(valid = await authenticator.validate( user, pass )) ) {
+		res.set('WWW-Authenticate', 'Basic realm="reality"');
+		res.status(401)
+		res.end()
+	} else {
+		next()
+
+		// keep key valid for ~30mins
+		authenticator.keepValid(user, valid)
+	}
+})
+
+app.get("/admin/editor", (req, res) => {
+	res.render("admin/editor")
+})
+
+app.post("/admin/editor/post", (req, res) => {
+	console.log(req.query, req.body)
+})
+
 app.get("/redirect/social/:social", (req, res) => {
 	switch( req.params.social ) {
 		case "tiktok": res.redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ"); break;
@@ -316,9 +346,67 @@ await Promise.all([
 blogDB  = mongoClient.db("blog")    // blog go here
 posts   = blogDB.collection("posts") // post go here
 authors = blogDB.collection("authors") // authors go here
+secrets = blogDB.collection("secrets") // secret stuffs 2fa code go here
 
 // sorting stuff
 sort = new Sorter(posts, collection, authors)
+
+// secret stuffs
+authenticator = new Authenticator(secrets)
+
+con.registercmd("evil", av => {
+	if( !av[1] ) {
+		console.log(evil.join(", "))
+		return
+	}
+
+	if( av[1][0] && (av[1][0] === "!") ) {
+		let iip = av[1].substr(1)
+		evil = evil.filter(ip => ip !== iip)
+		return
+	}
+
+	evil.push(av[1])	
+})
+
+con.registercmd("user", async (av, r) => {
+	if( !av[1] | av[1] == "help" | !av[2] ) return r(console.log("Usage: user <create | delete | qr | validate> <username>"))
+
+	switch( av[1] ) {
+		case "create":
+			console.log("Creating user %s", av[2])
+
+			// the secret thing
+			let [dbq, secret] = await authenticator.createUser( av[2] )
+			if( !dbq ) return r(console.log("User exists!"))
+
+			// output the qr code:
+			console.log(await secret.createUTF8())
+			console.log("or:", secret.base32, "or", secret.otpauth_url)
+			r()
+			break;
+
+		case "delete":
+			let existed = await authenticator.deleteUser( av[2] )
+			console.log(existed ? "Deleted user " + av[2] : " User " + av[2] + " didn't exist")
+			r()
+			break;
+
+		case "qr":
+			let res = await authenticator.getSecret( av[2] )
+			if( !res ) return r(console.log("user not exist"))
+
+			console.log(await Authenticator.qrFromBase32(res))
+			console.log("or:", res)
+			r()
+			break;
+
+		case "validate":
+			console.log(await authenticator.validate(av[2], Number(av[3])))
+			r()
+			break;
+	}
+}, true)
 
 con.registercmd("eval", async (av, r) => {
 	try {
@@ -336,6 +424,4 @@ con.registercmd("eval", async (av, r) => {
 con.init()
 }
 
-
 main()
-
