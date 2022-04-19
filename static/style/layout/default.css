@@ -368,25 +368,25 @@ form > input.submit {
 }
 
 /* admin/editor */
-.entrybox > .entry.metaentry > .preview > .editor > input.editor.title {
+.entrybox > .entry.metaentry > .preview > form > .editor > input.editor.title {
 	width: calc( 100% - 0.5em );
 	font-size: 1.5em;
 	font-family: slkscr;
 	margin-bottom: 0.5em;
 }
-.entrybox > .entry.metaentry > .preview > .editor > input.editor.tags {
+.entrybox > .entry.metaentry > .preview > form > .editor > input.editor.tags {
 	position: relative;
 	top: -2em;
 	width: 40em;
 	max-width: calc( 60% );
 	font-family: slkscr;
 }
-.entrybox > .entry.metaentry > .preview > .editor > textarea.editor.desc {
+.entrybox > .entry.metaentry > .preview > form > .editor > textarea.editor.desc {
 	width: calc( 100% - 0.5em );
 	resize: none;
 	height: 5em;
 }
-.entrybox > .entry.metaentry > .preview > .editor.author {
+.entrybox > .entry.metaentry > .preview > form > .editor.author {
 	font-family: slkscr;
 }
 

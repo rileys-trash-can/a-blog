@@ -12,11 +12,11 @@ function save() {
 		filename = filename ? filename : "post.export" 
 
 	let postjson = {
-		"title": document.getElementsByClassName("editor title").value,
+		"title": document.getElementsByClassName("editor title")[0].value,
 		"body": mde.value(),
 		"tags": tags,
-		"author": document.getElementsByClassName("editor author").value,
-		"desc": document.getElementsByClassName("editor desc").value,	
+		"author": document.getElementsByClassName("editor author")[0].value,
+		"desc": document.getElementsByClassName("editor desc")[0].value,	
 	}		
 
 	// dl it locally ( as .json )
@@ -33,10 +33,10 @@ function load() {
 	read.onload = (e) => {
 		let p = JSON.parse( e.target.result )
 
-		document.getElementsByClassName("editor title").value = p.title
-		document.getElementsByClassName("editor tags").val    = p.tags.join(", ")
-		document.getElementsByClassName("editor author").val  = p.author
-		document.getElementsByClassName("editor desc").val    = p.desc
+		document.getElementsByClassName("editor title")[0].value  = p.title
+		document.getElementsByClassName("editor tags")[0].value   = p.tags.join(", ")
+		document.getElementsByClassName("editor author")[0].value = p.author
+		document.getElementsByClassName("editor desc")[0].value   = p.desc
 		mde.value(p.body)
 
 		console.log(p)

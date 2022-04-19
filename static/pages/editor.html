@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>derzombiiie.com - home</title>
+    <link rel="stylesheet" href="/static/style/fonts.css">
+    <link rel="stylesheet" href="/static/style/main.css">
+	<link rel="stylesheet" href="/static/style/simplemde.min.css">
+	<script src="/static/js/simplemde.min.js"></script>
+    <script src="/static/js/jq.js"></script>
+    <script src="/config.js"></script>
+    <script src="/static/js/themes.js"></script>
+    <script src="/static/js/menubar.js"></script>
+    <script src="/static/js/entry.js"></script>
+    <script src="/static/js/share.js"></script>
+    <script src="/static/js/admin.js"></script>
+</head>
+
+<body>
+    <div class="menubox"></div>
+    <div class="content">
+    	<div class="entrybox">
+			<div class="entry metaentry">
+				<div class="title">
+					post creator
+				</div>
+				<hr class="seperator">
+				<div class="preview">
+					<div class="editor">
+						<input class="editor title" placeholder="title" type="text">
+						<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
+						<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
+						<textarea class="editor desc" placeholder="description"></textarea>
+					</div>
+					<input class="editor author" placeholder="Author">
+					<button onclick="previewpost()">preview</button>
+					<button onclick="post()">post</button>
+					<button onclick="save()">save localy</button>
+					<input class="editor load" type="file" onchange="load()">
+					<a class="dl"   download="export.post.json"></a>
+					<a class="link" target="_blank" on></a>
+				</div>
+			</div>
+    	</div>
+    	
+    </div>
+
+	<div class="footer"></div>
+</body>
+</html>

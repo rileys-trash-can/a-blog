@@ -264,6 +264,14 @@ form.comment > * {
 
 /* other stuff */
 
+/* admin/editor */
+.editor > input,
+.editor > button,
+.editor > textarea {
+	background-color: #202020;
+	border-color: #000000;
+}
+
 /* footer */
 .footer > a.text {
 	font-size: 0.7em;

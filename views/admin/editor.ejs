@@ -21,19 +21,21 @@
 				</div>
 				<hr class="seperator">
 				<div class="preview">
-					<div class="editor">
-						<input class="editor title" placeholder="title" type="text">
-						<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
-						<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
-						<textarea class="editor desc" placeholder="description"></textarea>
-					</div>
-					<input class="editor author" placeholder="Author">
-					<button onclick="previewpost()">preview</button>
-					<button onclick="post()">post</button>
-					<button onclick="save()">save localy</button>
-					<input class="editor load" type="file" onchange="load()">
-					<a class="dl"   download="export.post.json"></a>
-					<a class="link" target="_blank" on></a>
+					<form action="/admin/editor/post" method="POST" class="editor">
+						<div class="editor">
+							<input class="editor title" placeholder="title" type="text">
+							<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
+							<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
+							<textarea class="editor desc" placeholder="description"></textarea>
+						</div>
+						<input class="editor author" placeholder="Author">
+						<input type="submit" value="preview">
+						<input type="submit" value="post">
+						<button onclick="save()">save localy</button>
+						<input class="editor load" type="file" onchange="load()">
+						<a class="dl"   download="export.post.json"></a>
+						<a class="link" target="_blank" on></a>
+					</form>
 				</div>
 			</div>
     	</div>
