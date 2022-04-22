@@ -1,9 +1,15 @@
 document.onreadystatechange = _ => {
-	if( document.readyState === "complete" )
+	if( document.readyState === "complete" ) {
 		mde = new SimpleMDE({
 			element: document.getElementById("mde")
 		})
+
+		mde.codemirror.on("change", _ => {
+			document.getElementById("input_content").value = mde.value()
+		})
+	}
 }
+
 
 function save() {
 	let tags = document.getElementsByClassName("editor tags")[0].value.split(/[\,\ ]/).filter(i=> i!="" )

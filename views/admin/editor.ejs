@@ -23,14 +23,15 @@
 				<div class="preview">
 					<form action="/admin/editor/post" method="POST" class="editor">
 						<div class="editor">
-							<input class="editor title" placeholder="title" type="text">
+							<input name="headline" class="editor title" placeholder="title" type="text">
 							<textarea class="editor mde" id="mde"># Your post (NO HEADLINE HERE)</textarea>
-							<input class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
-							<textarea class="editor desc" placeholder="description"></textarea>
+							<input name="tag" class="editor tags" placeholder="TAGS HERE, comma (and or space) seperated">
+							<textarea name="description" class="editor desc" placeholder="description"></textarea>
 						</div>
-						<input class="editor author" placeholder="Author">
-						<input type="submit" value="preview">
-						<input type="submit" value="post">
+						<input name="content" id="input_content" type="hidden">
+						<input name="author" class="editor author" placeholder="Author">
+						<input name="action" type="submit" value="preview">
+						<input name="action" type="submit" value="post">
 						<button onclick="save()">save localy</button>
 						<input class="editor load" type="file" onchange="load()">
 						<a class="dl"   download="export.post.json"></a>

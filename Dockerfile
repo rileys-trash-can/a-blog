@@ -1,4 +1,5 @@
-FROM node:latest as builder
+FROM node:current-alpine3.14 as builder
+RUN apk add libqrencode
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install

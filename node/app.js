@@ -313,6 +313,7 @@ app.use("/admin", async (req, res, next) => {
 		next()
 
 		// keep key valid for ~30mins
+		
 		authenticator.keepValid(user, valid)
 	}
 })
@@ -321,8 +322,25 @@ app.get("/admin/editor", (req, res) => {
 	res.render("admin/editor")
 })
 
-app.post("/admin/editor/post", (req, res) => {
-	console.log(req.query, req.body)
+app.post("/admin/editor/post", async (req, res) => {
+	try {
+	post = new Post({
+		headline: req.body.headline,
+		subline:  req.body.description,
+		create:   Date.now(),
+		author:   req.body.author.split(" "),
+		tags:     req.body.tag.split(" "),
+		content:  req.body.content,
+		comments: {enabled: true, list: []},
+		rating:   {up: 0, down: 0},
+	})
+	} catch {
+		res.end("not ok")
+	}
+
+	await post.save( posts )
+
+	res.end("ok")
 })
 
 app.get("/redirect/social/:social", (req, res) => {

@@ -35,8 +35,12 @@ class Post {
 	}
 
 	// save to collection
-	async save( collection ) {
-		let _id = await collection.updateOne({id: this.id}, {$set: this}, {upsert: true}) // replace if exists
+	async save( collection, hidden = true ) {
+		let _id = await collection.insertOne(JSON.parse(JSON.stringify(this)), {upsert: true})
+		// unhide if suppilied
+		if( !hidden ) {
+			await collection.updateOne({_id}, {$set:{hidden:false}})
+		}
 		console.log("saving POST", this.id, _id)
 		return _id
 	}
