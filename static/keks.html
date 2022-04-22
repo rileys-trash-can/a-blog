@@ -1,0 +1,23 @@
+*not implemented yet*<br>
+<br>
+
+<script>
+function setCookie(cName, cValue, expDays) {
+        let date = new Date();
+        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+}
+</script>
+
+Theme: <button onclick='setCookie("theme", "light", 999)'>Light</button>
+<button onclick='setCookie("theme", "dark", 999)'>dark</button>
+<button onclick='setCookie("theme", "none", 999)'>none</button>
+<br>
+or for you *special* people you can disable layouting:
+<button onclick='setCookie("layout", "default", 999)'>default</button>
+<button onclick='setCookie("layout", "none", 999)'>none</button>
+<br>
+<br>
+Because youre reading this, i think you're either a bot, or a *very* intersted reader, if youre the latter: thanks.<br>
+May I tell you you can have all this goodness on the go? - yea this blog is available as a rss feed, yea that technology from the 00s!<br>
