@@ -27,7 +27,7 @@
 								<span class="text">I mostly do...</span>
 							</span>
 							<span class="field right"><% for ( let i = 0 ; i < author.category.length ; i ++) {%>
-								<span class="entry"><a href="/search?tag=<%= author.category[i] %>"><%= author.category[i] %></a></span>
+								<span class="entry"><a href="/tag/<%= author.category[i] %>"><%= author.category[i] %></a></span>
 							<% } %></span>
 						</span>
 					</div>
